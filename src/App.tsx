@@ -61,15 +61,15 @@ function App() {
     {
       category: 'Data Visualization Tools',
       skills: [
-        { name: 'Tableau', logo: 'public/logos/tableau.svg' },
-        { name: 'Power BI', logo: 'public/logos/power bi.svg' },
+        { name: 'Tableau', logo: '/my-portfolio/logos/tableau.svg' },
+        { name: 'Power BI', logo: '/my-portfolio/logos/power bi.svg' },
       ],
     },
     {
       category: 'Database Tools',
       skills: [
         { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-        { name: 'BigQuery Sandbox', logo: 'public/logos/bigquery.svg' },
+        { name: 'BigQuery Sandbox', logo: '/my-portfolio/logos/bigquery.svg' },
       ],
     },
     {
@@ -82,9 +82,9 @@ function App() {
     {
       category: 'Productivity Tools',
       skills: [
-        { name: 'Spreadsheets', logo: 'public/logos/sheets.svg' },
-        { name: 'Microsoft Office', logo: 'public/logos/office.svg' },
-        { name: 'Google Workspace', logo: 'public/logos/google.svg' },
+        { name: 'Spreadsheets', logo: '/my-portfolio/logos/sheets.svg' },
+        { name: 'Microsoft Office', logo: '/my-portfolio/logos/office.svg' },
+        { name: 'Google Workspace', logo: '/my-portfolio/logos/google.svg' },
       ],
     },
   ];
@@ -126,7 +126,7 @@ function App() {
               <div className="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative aspect-square w-48 h-48 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
                 <img 
-                  src="public/images/profile.jpg" 
+                  src="/my-portfolio/images/profile.jpg" 
                   alt="Your Name"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -146,7 +146,7 @@ function App() {
                     className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-300 via-red-300 via-yellow-300 to-green-300 dark:from-blue-400 dark:via-red-400 dark:via-yellow-400 dark:to-green-400 opacity-0 group-hover:opacity-80 transition-opacity duration-300 blur-md"
                   ></div>
                   <img 
-                    src="public/logos/google.svg" 
+                    src="/my-portfolio/logos/google.svg" 
                     alt="Email"
                     className="w-6 h-6 relative z-10 transition-transform duration-300 group-hover:scale-105"
                   />
@@ -185,7 +185,7 @@ function App() {
                   <Mail className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                 </a>
                 <a 
-                  href="resume.pdf" 
+                  href="/my-portfolio/resume.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group border-2 border-black dark:border-white px-8 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2"
@@ -443,83 +443,79 @@ function App() {
       </section>
 
       <section id="projects" className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
-  <div className="container mx-auto px-4">
-    <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {[
-        { 
-          title: "Case Studies Portfolio",
-          description: "Data-driven business insights using Excel, SQL, R, and Tableau",
-          image: "public/images/Case Studies Portfolio.webp",
-          techStack: ["Excel", "SQL", "R", "Tableau"],
-          link: "https://yoshni-portfolio.blogspot.com/search/label/case-studies" 
-        },
-        {
-          title: "Career Application Insight Tracker",
-          description: "Data-driven insights and dashboards to optimize job applications and interview success.",
-          image: "public/images/Career Application Insight Tracker.webp",
-          techStack: ["Excel", "SQL", "R", "Tableau"],
-          link: "https://yoshni-portfolio.blogspot.com/2025/03/career-application-insight-tracker.html" 
-        },
-        {
-          title: "Automated IoT-Enabled Women’s Safety System with Real-Time Monitoring",
-          description: "IoT-enabled women's safety detection with Arduino and machine learning.",
-          image: "public/images/iot.webp",
-          techStack: ["Python", "IoT", "ML", "Hardware Model"],
-        }
-      ].map((project, index) => (
-        <div key={index} className="project-card group relative">
-          {project.link ? (
-            <a 
-              href={project.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700"
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black dark:bg-white opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
-              {/* Image */}
-              <img 
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              {/* External Link Icon - Only if link exists */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                <div className="bg-white dark:bg-gray-900 text-black dark:text-white p-3 rounded-full group-hover:animate-bounce group-hover:shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                  <ExternalLink className="w-6 h-6" />
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { 
+                title: "Case Studies Portfolio",
+                description: "Data-driven business insights using Excel, SQL, R, and Tableau",
+                image: "/my-portfolio/images/Case Studies Portfolio.webp",
+                techStack: ["Excel", "SQL", "R", "Tableau"],
+                link: "https://yoshni-portfolio.blogspot.com/search/label/case-studies" 
+              },
+              {
+                title: "Career Application Insight Tracker",
+                description: "Data-driven insights and dashboards to optimize job applications and interview success.",
+                image: "/my-portfolio/images/Career Application Insight Tracker.webp",
+                techStack: ["Excel", "SQL", "R", "Tableau"],
+                link: "https://yoshni-portfolio.blogspot.com/2025/03/career-application-insight-tracker.html" 
+              },
+              {
+                title: "Automated IoT-Enabled Women’s Safety System with Real-Time Monitoring",
+                description: "IoT-enabled women's safety detection with Arduino and machine learning.",
+                image: "/my-portfolio/images/iot.webp",
+                techStack: ["Python", "IoT", "ML", "Hardware Model"],
+              }
+            ].map((project, index) => (
+              <div key={index} className="project-card group relative">
+                {project.link ? (
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700"
+                  >
+                    <div className="absolute inset-0 bg-black dark:bg-white opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
+                    <img 
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                      <div className="bg-white dark:bg-gray-900 text-black dark:text-white p-3 rounded-full group-hover:animate-bounce group-hover:shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                        <ExternalLink className="w-6 h-6" />
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="block relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700 cursor-default">
+                    <img 
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech) => (
+                      <span 
+                        key={tech} 
+                        className="text-xs font-medium bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 px-3 py-1 rounded-full shadow-sm hover:bg-gradient-to-r hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-700 transition-all duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </a>
-          ) : (
-            <div className="block relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700 cursor-default">
-              {/* Image */}
-              <img 
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
-            </div>
-          )}
-          <div className="p-6">
-            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
-                <span 
-                  key={tech} 
-                  className="text-xs font-medium bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 px-3 py-1 rounded-full shadow-sm hover:bg-gradient-to-r hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-700 transition-all duration-300"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       <section id="co-curriculars" className="py-24 gradient-bg transition-colors duration-300">
         <div className="container mx-auto px-4">
@@ -531,35 +527,35 @@ function App() {
                 organization: "Amrita Vishwa Vidyapeetham",
                 duration: "Oct 2021 - Sep 2022",
                 description: "Strategically facilitated communication between students and faculty, and coordinated academic schedules & events.",
-                logo: "public/logos/amrita.svg" // Add logo URL here
+                logo: "/my-portfolio/logos/amrita.svg"
               },
               {
                 activity: "GDSC - Student Core Team",
                 organization: "Google Developer Student Club",
                 duration: "Aug 2023 - May 2024",
                 description: "Designed & delivered targeted resources, workshops, and networking for technical skill development and career growth.",
-                logo: "public/logos/gdsc.svg" // Add logo URL here
+                logo: "/my-portfolio/logos/gdsc.svg"
               },
               {
                 activity: "The Elite Club",
                 organization: "Amrita Vishwa Vidyapeetham",
                 duration: "Oct 2023 - Sep 2024",
                 description: "Organized workshops & events to instill entrepreneurship and leadership, empowering students with business ideation.",
-                logo: "public/logos/elite.jpg"
+                logo: "/my-portfolio/logos/elite.jpg"
               },
               {
                 activity: "IETE Club",
                 organization: "Institution of Electronics and Telecommunication Engineers",
                 duration: "Nov 2023 - Sep 2024",
                 description: "Conducted workshops and events, coordinated a major workshop with oneAPI Intel AI Hackathon.",
-                logo: "public/logos/iete.jpg" // Add logo URL here
+                logo: "/my-portfolio/logos/iete.jpg"
               },
               {
                 activity: "Finance Coordinator - Gokulastami Event, ECE Dept",
                 organization: "Amrita Vishwa Vidyapeetham",
                 duration: "Aug 2024",
                 description: "Optimized budget allocation using advanced Excel analytics for financial compliance and efficiency.",
-                logo: "public/logos/amrita.svg" // Add logo URL here
+                logo: "/my-portfolio/logos/amrita.svg"
               }
             ].map((item, index) => (
               <div 
