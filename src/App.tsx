@@ -393,7 +393,7 @@ function App() {
             {[
               {
                 title: "Google Data Analytics Professional Certificate",
-                link: "", // Add your link here
+                link: "https://drive.google.com/file/d/1oGMQ9_n3aeOqa4330LHuudzhssFmujdo/view", // Add your link here
                 issuer: "Coursera Platform",
                 date: "Jan 2025 - Mar 2025",
                 status: "Completed",
