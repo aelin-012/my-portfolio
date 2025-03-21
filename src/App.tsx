@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Github, Mail, FileText, ExternalLink, Code2, Heart, Coffee, Sparkles, Star, Laptop, Brain, Users, Trophy, Zap, Moon, Sun, Linkedin } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Github, Mail, FileText, ExternalLink, Heart, Coffee, Sparkles, Star, Users, Zap, Moon, Sun, Linkedin, BarChart, ClipboardCheckIcon, Presentation, UserPlus, MessageSquare, Search, Lightbulb, RefreshCw, Eye, Trophy } from 'lucide-react';
+import { MdInsights } from "react-icons/md";
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,22 +46,47 @@ function App() {
     { id: 'about', label: 'About Me' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
-    { id: 'co-curriculars', label: 'Co-Curriculars' }, // Added to nav
+    { id: 'co-curriculars', label: 'Co-Curriculars' },
     { id: 'contact', label: 'Contact' },
   ];
 
-  const technicalSkills = [
-    { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-    { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-    { name: 'R', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg' },
-    { name: 'Tableau', logo: 'icons/tableau.svg' },
-    { name: 'Power BI', logo: "icons/power bi.svg" },
-    { name: 'Spreadsheets', logo: 'icons/sheets.svg' },
-    { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-    { name: 'RStudio Cloud', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rstudio/rstudio-original.svg' },
-    { name: 'BigQuery Sandbox', logo: 'icons/big query.svg' },
-    { name: 'Microsoft Office', logo: 'icons/microsoft office.svg' },
-    { name: 'Google Workspace', logo: 'icons/google.svg' }
+  const technicalSkillsCategories = [
+    {
+      category: 'Programming Languages',
+      skills: [
+        { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+        { name: 'R', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg' },
+      ],
+    },
+    {
+      category: 'Data Visualization Tools',
+      skills: [
+        { name: 'Tableau', logo: 'icons/tableau.svg' },
+        { name: 'Power BI', logo: 'icons/power bi.svg' },
+      ],
+    },
+    {
+      category: 'Database Tools',
+      skills: [
+        { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        { name: 'BigQuery Sandbox', logo: 'icons/big query.svg' },
+      ],
+    },
+    {
+      category: 'Development Environments',
+      skills: [
+        { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+        { name: 'RStudio Cloud', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rstudio/rstudio-original.svg' },
+      ],
+    },
+    {
+      category: 'Productivity Tools',
+      skills: [
+        { name: 'Spreadsheets', logo: 'icons/sheets.svg' },
+        { name: 'Microsoft Office', logo: 'icons/microsoft office.svg' },
+        { name: 'Google Workspace', logo: 'icons/google.svg' },
+      ],
+    },
   ];
 
   return (
@@ -100,7 +126,7 @@ function App() {
               <div className="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative aspect-square w-48 h-48 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=800&q=80" 
+                  src="profile.jpg" 
                   alt="Your Name"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -175,36 +201,38 @@ function App() {
 
       <section id="about" className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="container mx-auto px-4">
-          {/* About Me Heading */}
           <h2 className="text-4xl font-bold text-center mb-12 gradient-text tracking-tight">About Me</h2>
           
-          {/* About Me Section */}
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm relative overflow-hidden transition-colors duration-300">
               <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-lg font-light">
-                Hi there! I'm a passionate frontend developer with a keen eye for design and a love for creating beautiful, 
-                user-friendly web experiences. When I'm not coding, you'll find me exploring new technologies, 
-                contributing to open-source projects, or enjoying a good cup of coffee ☕
+                👋 Hi there! I'm an aspiring data analyst with a passion for turning raw data into meaningful insights. 
+                With a strong foundation in data analysis, problem-solving, and visualization, I love uncovering patterns that drive smarter decision-making. 
+                Beyond numbers, I'm also a management enthusiast who thrives on organization and leadership.
+                <br /><br />
+                When I’m not diving into datasets, you’ll find me reading a good book, listening to music and podcasts, or binge-watching movies and series. 
+                I also love experimenting in the kitchen—always with a cup of coffee in hand! ☕📊✨
+                <br /><br />
+                Let’s connect and make data work its magic!
               </p>
               <div className="flex justify-center gap-10">
                 <div className="flex flex-col items-center group">
-                  <Coffee className="w-8 h-8 mb-2 animate-float text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" />
+                  <BarChart className="w-8 h-8 mb-2 animate-float text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" style={{ animationDelay: '0.2s' }} />
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Data-Driven</span>
+                </div>
+                <div className="flex flex-col items-center group">
+                  <ClipboardCheckIcon className="w-8 h-8 mb-2 animate-float text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" style={{ animationDelay: '0.4s' }} />
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Organized</span>
+                </div>
+                <div className="flex flex-col items-center group">
+                  <Coffee className="w-8 h-8 mb-2 animate-float text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" style={{ animationDelay: '0.6s' }} />
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Coffee Lover</span>
-                </div>
-                <div className="flex flex-col items-center group">
-                  <Heart className="w-8 h-8 mb-2 animate-float text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" style={{ animationDelay: '0.2s' }} />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Passionate</span>
-                </div>
-                <div className="flex flex-col items-center group">
-                  <Code2 className="w-8 h-8 mb-2 animate-float text-gray-600 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" style={{ animationDelay: '0.4s' }} />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Coder</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Subtle Separator */}
           <div className="max-w-2xl mx-auto my-16 relative">
             <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 rounded-full p-2">
@@ -212,10 +240,8 @@ function App() {
             </div>
           </div>
 
-          {/* Education Heading */}
           <h2 className="text-4xl font-bold text-center mb-12 gradient-text tracking-tight">Education</h2>
           
-          {/* Education Section */}
           <div id="education" className="max-w-4xl mx-auto space-y-6">
             {[
               {
@@ -225,22 +251,6 @@ function App() {
                 institution: "Amrita Vishwa Vidyapeetham",
                 location: "Coimbatore",
                 score: "CGPA: 7.23"
-              },
-              {
-                degree: "Grade 12",
-                duration: "June 2020 - May 2021",
-                field: "",
-                institution: "Victory Vidhyalaya Matric Hr. Sec.",
-                location: "Coimbatore",
-                score: "Percentile: 91.8"
-              },
-              {
-                degree: "Grade 10",
-                duration: "June 2018 - Mar 2019",
-                field: "",
-                institution: "Einstein Public Matric School",
-                location: "",
-                score: "Percentile: 91.2"
               }
             ].map((edu, index) => (
               <div 
@@ -269,6 +279,40 @@ function App() {
               </div>
             ))}
           </div>
+
+          <div className="max-w-2xl mx-auto my-16 relative">
+            <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 rounded-full p-2">
+              <Zap className="w-5 h-5 text-yellow-400 dark:text-yellow-500 animate-pulse" />
+            </div>
+          </div>
+
+          <h2 className="text-4xl font-bold text-center mb-12 gradient-text tracking-tight">Experience</h2>
+
+          <div id="experience" className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                role: "Student Intern",
+                company: "Hirotec India Private Limited",
+                duration: "June 2024",
+                location: "Coimbatore",
+                description: "Gained hands-on experience in SQL and explored key concepts of software development. Strengthened programming skills while working in a professional environment."
+              }
+            ].map((exp, index) => (
+              <div 
+                key={index} 
+                className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="relative">
+                  <h3 className="text-xl font-semibold mb-1 text-gray-800 dark:text-gray-200">{exp.role}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{exp.company} • {exp.duration}</p>
+                  <p className="text-gray-700 dark:text-gray-300 mb-2">{exp.location}</p>
+                  <p className="text-gray-700 dark:text-gray-300 text-base">{exp.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -278,20 +322,32 @@ function App() {
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             <div className="skill-card bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300">
               <div className="flex items-center gap-3 mb-6">
-                <Brain className="w-6 h-6" />
+                <MdInsights className="w-6 h-6" />
                 <h3 className="text-2xl font-bold">Technical Skills</h3>
               </div>
-              <div className="grid grid-cols-2 gap-6">
-                {technicalSkills.map((skill) => (
-                  <div key={skill.name} className="group flex items-center gap-3">
-                    <div className={`p-2 rounded-lg bg-gray-50 dark:bg-gray-700 transition-colors duration-300 group-hover:scale-110`}>
-                      <img 
-                        src={skill.logo} 
-                        alt={skill.name}
-                        className="w-6 h-6 transition-transform group-hover:rotate-12"
-                      />
+              <div className="space-y-8">
+                {technicalSkillsCategories.map((category, index) => (
+                  <div key={category.category}>
+                    <h4 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">{category.category}</h4>
+                    <div className="grid grid-cols-2 gap-6">
+                      {category.skills.map((skill) => (
+                        <div key={skill.name} className="group flex items-center gap-3">
+                          <div className="p-2 rounded-lg bg-gray-50 dark:bg-gray-700 transition-colors duration-300 group-hover:scale-110">
+                            <img
+                              src={skill.logo}
+                              alt={skill.name}
+                              className="w-6 h-6 transition-transform group-hover:rotate-12"
+                            />
+                          </div>
+                          <span className="font-medium">{skill.name}</span>
+                        </div>
+                      ))}
                     </div>
-                    <span className="font-medium">{skill.name}</span>
+                    {index < technicalSkillsCategories.length - 1 && (
+                      <div className="my-6">
+                        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -303,10 +359,14 @@ function App() {
               </div>
               <div className="space-y-6">
                 {[
-                  { icon: Trophy, name: 'Problem Solving', description: 'Analytical thinking & creative solutions' },
-                  { icon: Users, name: 'Team Collaboration', description: 'Effective team player & communicator' },
-                  { icon: Brain, name: 'Quick Learning', description: 'Adaptable to new technologies' },
-                  { icon: Zap, name: 'Time Management', description: 'Efficient project handling' }
+                  { icon: Presentation, name: 'Presentation Skills', description: 'Effective delivery of ideas' },
+                  { icon: UserPlus, name: 'Collaboration', description: 'Working well in teams' },
+                  { icon: MessageSquare, name: 'Communication', description: 'Clear and concise exchange of info' },
+                  { icon: Search, name: 'Research', description: 'In-depth analysis and investigation' },
+                  { icon: Lightbulb, name: 'Problem-solving Skills', description: 'Creative and analytical solutions' },
+                  { icon: RefreshCw, name: 'Adaptability', description: 'Flexibility in dynamic environments' },
+                  { icon: Eye, name: 'Attention to Detail', description: 'Precision and thoroughness' },
+                  { icon: Trophy, name: 'Leadership Skills', description: 'Guiding teams to success' }
                 ].map((skill) => (
                   <div key={skill.name} className="group flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                     <skill.icon className="w-5 h-5 mt-1 group-hover:scale-110 transition-transform" />
@@ -320,7 +380,6 @@ function App() {
             </div>
           </div>
 
-          {/* Subtle Separator */}
           <div className="max-w-2xl mx-auto my-16 relative">
             <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 rounded-full p-2">
@@ -328,29 +387,25 @@ function App() {
             </div>
           </div>
 
-          {/* Certifications Heading */}
           <h2 className="text-4xl font-bold text-center mb-12 gradient-text tracking-tight">Certifications</h2>
 
-          {/* Certifications Section */}
           <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
-                title: "Data Analyst Certification",
-                issuer: "Google",
-                date: "March 2024",
-                description: "Completed an intensive course on data analysis techniques and tools."
+                title: "Google Data Analytics Professional Certificate",
+                link: "", // Add your link here
+                issuer: "Coursera Platform",
+                date: "Jan 2025 - Mar 2025",
+                status: "Completed",
+                description: "Completed a comprehensive program on data analytics."
               },
               {
-                title: "Frontend Development with React",
-                issuer: "Coursera",
-                date: "December 2023",
-                description: "Mastered React fundamentals and modern web development practices."
-              },
-              {
-                title: "SQL for Data Science",
-                issuer: "IBM",
-                date: "August 2023",
-                description: "Gained expertise in SQL querying for data manipulation and analysis."
+                title: "Google Business Intelligence Professional Certificate",
+                link: "", // Add your link here
+                issuer: "Coursera Platform",
+                date: "Mar 2025 - Present",
+                status: "Ongoing",
+                description: "Currently pursuing skills in business intelligence."
               }
             ].map((cert, index) => (
               <div 
@@ -360,7 +415,26 @@ function App() {
                 <div className="relative">
                   <h3 className="text-xl font-semibold mb-1 text-gray-800 dark:text-gray-200">{cert.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{cert.issuer} • {cert.date}</p>
-                  <p className="text-gray-700 dark:text-gray-300 text-base">{cert.description}</p>
+                  <p className="text-gray-700 dark:text-gray-300 text-base mb-2">{cert.description}</p>
+                  <div className="flex items-center gap-2">
+                    <a 
+                      href={cert.link || "#"} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline text-sm"
+                    >
+                      {cert.link ? "View Certificate" : "Link to be added"}
+                    </a>
+                    {cert.status === "Completed" ? (
+                      <span className="flex items-center gap-1 text-green-500 text-sm">
+                        <ClipboardCheckIcon className="w-4 h-4" /> Completed
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1 text-yellow-500 text-sm">
+                        <Zap className="w-4 h-4 animate-pulse" /> Ongoing
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -369,112 +443,150 @@ function App() {
       </section>
 
       <section id="projects" className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "E-Commerce Platform",
-                description: "A modern e-commerce solution with React and Node.js",
-                image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&w=800&q=80"
-              },
-              {
-                title: "Task Management App",
-                description: "Efficient task tracking with real-time updates",
-                image: "https://images.unsplash.com/photo-1661956602868-6ae368943878?auto=format&fit=crop&w=800&q=80"
-              },
-              {
-                title: "Portfolio Website",
-                description: "Responsive portfolio with modern animations",
-                image: "https://images.unsplash.com/photo-1661956601349-f61c959a8fd4?auto=format&fit=crop&w=800&q=80"
-              }
-            ].map((project, index) => (
-              <div key={index} className="project-card group">
-                <div className="relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700">
-                  <div className="absolute inset-0 bg-black dark:bg-white opacity-0 group-hover:opacity-60 transition-opacity z-10"></div>
-                  <img 
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                    <div className="flex gap-4">
-                      <a href="#" className="bg-white dark:bg-gray-900 text-black dark:text-white p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <Github className="w-5 h-5" />
-                      </a>
-                      <a href="#" className="bg-white dark:bg-gray-900 text-black dark:text-white p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
-                  <div className="flex gap-2">
-                    {['React', 'Node.js', 'TypeScript'].map((tech) => (
-                      <span key={tech} className="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+  <div className="container mx-auto px-4">
+    <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {[
+        { 
+          title: "Case Studies Portfolio",
+          description: "Data-driven business insights using Excel, SQL, R, and Tableau",
+          image: "imgs/Case Studies Portfolio.webp",
+          techStack: ["Excel", "SQL", "R", "Tableau"],
+          link: "https://yoshni-portfolio.blogspot.com/search/label/case-studies" 
+        },
+        {
+          title: "Career Application Insight Tracker",
+          description: "Data-driven insights and dashboards to optimize job applications and interview success.",
+          image: "imgs/Career Application Insight Tracker.webp",
+          techStack: ["Excel", "SQL", "R", "Tableau"],
+          link: "https://yoshni-portfolio.blogspot.com/2025/03/career-application-insight-tracker.html" 
+        },
+        {
+          title: "Automated IoT-Enabled Women’s Safety System with Real-Time Monitoring",
+          description: "IoT-enabled women's safety detection with Arduino and machine learning.",
+          image: "imgs/IOT.webp",
+          techStack: ["Python", "IoT", "ML", "Hardware Model"],
+        }
+      ].map((project, index) => (
+        <div key={index} className="project-card group relative">
+          {project.link ? (
+            <a 
+              href={project.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700"
+            >
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black dark:bg-white opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
+              {/* Image */}
+              <img 
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+              {/* External Link Icon - Only if link exists */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                <div className="bg-white dark:bg-gray-900 text-black dark:text-white p-3 rounded-full group-hover:animate-bounce group-hover:shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                  <ExternalLink className="w-6 h-6" />
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="co-curriculars" className="py-24 gradient-bg transition-colors duration-300">
-  <div className="container mx-auto px-4">
-    <h2 className="text-4xl font-bold text-center mb-12 gradient-text tracking-tight">Co-Curriculars</h2>
-    <div className="max-w-4xl mx-auto space-y-6">
-      {[
-        {
-          activity: "Class Representative",
-          organization: "Amrita Vishwa Vidyapeetham",
-          duration: "Oct 2021 - Sep 2022",
-          description: "Strategically facilitated communication between students and faculty, and coordinated academic schedules & events."
-        },
-        {
-          activity: "GDSC - Student Core Team",
-          organization: "Google Developer Student Club",
-          duration: "Aug 2023 - May 2024",
-          description: "As a member of the Google Developer Student Club, a global program fostering student-led communities, our club designed & delivered targeted resources, workshops, and networking for technical skill development and career growth."
-        },
-        {
-          activity: "The Elite Club",
-          organization: "Amrita Vishwa Vidyapeetham",
-          duration: "Oct 2023 - Sep 2024",
-          description: "Organized diverse workshops & events with the aim of instilling entrepreneurship and leadership. Cultivated a dynamic startup-oriented ecosystem, empowering students with foundational business ideation and professional competencies."
-        },
-        {
-          activity: "IETE Club",
-          organization: "Institution of Electronics and Telecommunication Engineers",
-          duration: "Nov 2023 - Sep 2024",
-          description: "Conducted various workshops and events. Partook as an overall coordinator in our largest workshop yet, collaborating with oneAPI Intel AI Hackathon."
-        },
-        {
-          activity: "Finance Coordinator",
-          organization: "Amrita Vishwa Vidyapeetham",
-          duration: "Aug 2024",
-          description: "Leveraged advanced Excel analytics to optimize budget allocation, ensure financial compliance, and maximize resource efficiency."
-        }
-      ].map((item, index) => (
-        <div 
-          key={index} 
-          className="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
-        >
-          <div className="relative">
-            <h3 className="text-xl font-semibold mb-1 text-gray-800 dark:text-gray-200">{item.activity}</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{item.organization} • {item.duration}</p>
-            <p className="text-gray-700 dark:text-gray-300 text-base">{item.description}</p>
+            </a>
+          ) : (
+            <div className="block relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700 cursor-default">
+              {/* Image */}
+              <img 
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover"
+              />
+            </div>
+          )}
+          <div className="p-6">
+            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+            <div className="flex flex-wrap gap-2">
+              {project.techStack.map((tech) => (
+                <span 
+                  key={tech} 
+                  className="text-xs font-medium bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 px-3 py-1 rounded-full shadow-sm hover:bg-gradient-to-r hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-700 transition-all duration-300"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+      <section id="co-curriculars" className="py-24 gradient-bg transition-colors duration-300">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 gradient-text tracking-tight">Co-Curriculars</h2>
+          <div className="max-w-4xl mx-auto space-y-8">
+            {[
+              {
+                activity: "Class Representative",
+                organization: "Amrita Vishwa Vidyapeetham",
+                duration: "Oct 2021 - Sep 2022",
+                description: "Strategically facilitated communication between students and faculty, and coordinated academic schedules & events.",
+                logo: "icons/amrita.svg" // Add logo URL here
+              },
+              {
+                activity: "GDSC - Student Core Team",
+                organization: "Google Developer Student Club",
+                duration: "Aug 2023 - May 2024",
+                description: "Designed & delivered targeted resources, workshops, and networking for technical skill development and career growth.",
+                logo: "icons/gdsc.png" // Add logo URL here
+              },
+              {
+                activity: "The Elite Club",
+                organization: "Amrita Vishwa Vidyapeetham",
+                duration: "Oct 2023 - Sep 2024",
+                description: "Organized workshops & events to instill entrepreneurship and leadership, empowering students with business ideation.",
+                logo: "icons/elite.jpg"
+              },
+              {
+                activity: "IETE Club",
+                organization: "Institution of Electronics and Telecommunication Engineers",
+                duration: "Nov 2023 - Sep 2024",
+                description: "Conducted workshops and events, coordinated a major workshop with oneAPI Intel AI Hackathon.",
+                logo: "icons/iete.jpg" // Add logo URL here
+              },
+              {
+                activity: "Finance Coordinator - Gokulastami Event, ECE Dept",
+                organization: "Amrita Vishwa Vidyapeetham",
+                duration: "Aug 2024",
+                description: "Optimized budget allocation using advanced Excel analytics for financial compliance and efficiency.",
+                logo: "icons/amrita.svg" // Add logo URL here
+              }
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700 flex items-start gap-4"
+              >
+                <div className="w-12 h-12 flex-shrink-0">
+                  {item.logo ? (
+                    <img 
+                      src={item.logo} 
+                      alt={`${item.organization} logo`}
+                      className="w-full h-full object-contain rounded-full"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 text-xs">Logo</div>
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold mb-1 text-gray-800 dark:text-gray-200">{item.activity}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{item.organization} • {item.duration}</p>
+                  <p className="text-gray-700 dark:text-gray-300 text-base">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="contact" className="py-16 gradient-bg transition-colors duration-300">
         <div className="container mx-auto px-4">
