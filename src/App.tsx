@@ -61,15 +61,15 @@ function App() {
     {
       category: 'Data Visualization Tools',
       skills: [
-        { name: 'Tableau', logo: 'icons/tableau.svg' },
-        { name: 'Power BI', logo: 'icons/power bi.svg' },
+        { name: 'Tableau', logo: 'public/logos/tableau.svg' },
+        { name: 'Power BI', logo: 'public/logos/power bi.svg' },
       ],
     },
     {
       category: 'Database Tools',
       skills: [
         { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-        { name: 'BigQuery Sandbox', logo: 'icons/big query.svg' },
+        { name: 'BigQuery Sandbox', logo: 'public/logos/bigquery.svg' },
       ],
     },
     {
@@ -82,9 +82,9 @@ function App() {
     {
       category: 'Productivity Tools',
       skills: [
-        { name: 'Spreadsheets', logo: 'icons/sheets.svg' },
-        { name: 'Microsoft Office', logo: 'icons/microsoft office.svg' },
-        { name: 'Google Workspace', logo: 'icons/google.svg' },
+        { name: 'Spreadsheets', logo: 'public/logos/sheets.svg' },
+        { name: 'Microsoft Office', logo: 'public/logos/office.svg' },
+        { name: 'Google Workspace', logo: 'public/logos/google.svg' },
       ],
     },
   ];
@@ -126,7 +126,7 @@ function App() {
               <div className="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative aspect-square w-48 h-48 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
                 <img 
-                  src="profile.jpg" 
+                  src="public/images/profile.jpg" 
                   alt="Your Name"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -146,7 +146,7 @@ function App() {
                     className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-300 via-red-300 via-yellow-300 to-green-300 dark:from-blue-400 dark:via-red-400 dark:via-yellow-400 dark:to-green-400 opacity-0 group-hover:opacity-80 transition-opacity duration-300 blur-md"
                   ></div>
                   <img 
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" 
+                    src="public/logos/google.svg" 
                     alt="Email"
                     className="w-6 h-6 relative z-10 transition-transform duration-300 group-hover:scale-105"
                   />
@@ -450,21 +450,21 @@ function App() {
         { 
           title: "Case Studies Portfolio",
           description: "Data-driven business insights using Excel, SQL, R, and Tableau",
-          image: "imgs/Case Studies Portfolio.webp",
+          image: "public/images/Case Studies Portfolio.webp",
           techStack: ["Excel", "SQL", "R", "Tableau"],
           link: "https://yoshni-portfolio.blogspot.com/search/label/case-studies" 
         },
         {
           title: "Career Application Insight Tracker",
           description: "Data-driven insights and dashboards to optimize job applications and interview success.",
-          image: "imgs/Career Application Insight Tracker.webp",
+          image: "public/images/Career Application Insight Tracker.webp",
           techStack: ["Excel", "SQL", "R", "Tableau"],
           link: "https://yoshni-portfolio.blogspot.com/2025/03/career-application-insight-tracker.html" 
         },
         {
           title: "Automated IoT-Enabled Women’s Safety System with Real-Time Monitoring",
           description: "IoT-enabled women's safety detection with Arduino and machine learning.",
-          image: "imgs/IOT.webp",
+          image: "public/images/iot.webp",
           techStack: ["Python", "IoT", "ML", "Hardware Model"],
         }
       ].map((project, index) => (
@@ -531,35 +531,35 @@ function App() {
                 organization: "Amrita Vishwa Vidyapeetham",
                 duration: "Oct 2021 - Sep 2022",
                 description: "Strategically facilitated communication between students and faculty, and coordinated academic schedules & events.",
-                logo: "icons/amrita.svg" // Add logo URL here
+                logo: "public/logos/amrita.svg" // Add logo URL here
               },
               {
                 activity: "GDSC - Student Core Team",
                 organization: "Google Developer Student Club",
                 duration: "Aug 2023 - May 2024",
                 description: "Designed & delivered targeted resources, workshops, and networking for technical skill development and career growth.",
-                logo: "icons/gdsc.png" // Add logo URL here
+                logo: "public/logos/gdsc.svg" // Add logo URL here
               },
               {
                 activity: "The Elite Club",
                 organization: "Amrita Vishwa Vidyapeetham",
                 duration: "Oct 2023 - Sep 2024",
                 description: "Organized workshops & events to instill entrepreneurship and leadership, empowering students with business ideation.",
-                logo: "icons/elite.jpg"
+                logo: "public/logos/elite.jpg"
               },
               {
                 activity: "IETE Club",
                 organization: "Institution of Electronics and Telecommunication Engineers",
                 duration: "Nov 2023 - Sep 2024",
                 description: "Conducted workshops and events, coordinated a major workshop with oneAPI Intel AI Hackathon.",
-                logo: "icons/iete.jpg" // Add logo URL here
+                logo: "public/logos/iete.jpg" // Add logo URL here
               },
               {
                 activity: "Finance Coordinator - Gokulastami Event, ECE Dept",
                 organization: "Amrita Vishwa Vidyapeetham",
                 duration: "Aug 2024",
                 description: "Optimized budget allocation using advanced Excel analytics for financial compliance and efficiency.",
-                logo: "icons/amrita.svg" // Add logo URL here
+                logo: "public/logos/amrita.svg" // Add logo URL here
               }
             ].map((item, index) => (
               <div 
