@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.gradient-text {
+  @apply dark:bg-gradient-to-r dark:from-white dark:via-gray-400 dark:to-white;
+  background: linear-gradient(to right, #000000, #666666, #000000);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+.skill-card {
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.project-card {
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.gradient-bg {
+  @apply dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900;
+  background: linear-gradient(45deg, #f3f4f6, #ffffff, #f3f4f6);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.floating-nav {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
