@@ -1,3 +1,3 @@
-📊 Portfolio
+## 📊 Portfolio  
 
-Check out my data analytics portfolio: aelin-012.github.io/my-portfolio/ 🚀
+[Check out my data analytics portfolio 🚀](https://aelin-012.github.io/my-portfolio/)
