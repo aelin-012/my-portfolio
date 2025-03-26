@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Github, Mail, FileText, ExternalLink, Heart, Coffee, Sparkles, Star, Users, Zap, Moon, Sun, Linkedin, BarChart, ClipboardCheckIcon, Presentation, UserPlus, MessageSquare, Search, Lightbulb, RefreshCw, Eye, Trophy } from 'lucide-react';
+import { Github, Mail, FileText, ExternalLink, Heart, Coffee, Clock, Sparkles, Star, Users, Zap, Moon, Sun, Linkedin, BarChart, ClipboardCheckIcon, Presentation, UserPlus, MessageSquare, Search, Lightbulb, RefreshCw, Eye, Trophy } from 'lucide-react';
 import { MdInsights } from "react-icons/md";
 
 function App() {
@@ -52,12 +52,14 @@ function App() {
 
   const technicalSkillsCategories = [
     {
-      category: 'Programming Languages',
-      skills: [
-        { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-        { name: 'R', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg' },
+      "category": "Scripting & Query Languages",
+      "skills": [
+        { "name": "Python", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { "name": "R", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" },
+        { "name": "SQL", "logo": "/my-portfolio/logos/sql.png" }
       ],
     },
+    
     {
       category: 'Data Visualization Tools',
       skills: [
@@ -81,12 +83,13 @@ function App() {
     },
     {
       category: 'Productivity Tools',
-      skills: [
-        { name: 'Spreadsheets', logo: '/my-portfolio/logos/sheets.svg' },
-        { name: 'Microsoft Office', logo: '/my-portfolio/logos/office.svg' },
-        { name: 'Google Workspace', logo: '/my-portfolio/logos/google.svg' },
-      ],
-    },
+      "skills": [
+    { "name": "Microsoft Excel", "logo": "/my-portfolio/logos/excel.png" },
+    { "name": "Google Sheets", "logo": "/my-portfolio/logos/sheets.svg" },
+    { "name": "Microsoft Office", "logo": "/my-portfolio/logos/office.svg" },
+    { "name": "Google Workspace", "logo": "/my-portfolio/logos/google.svg" }
+  ],
+}
   ];
 
   return (
@@ -366,7 +369,8 @@ function App() {
                   { icon: Lightbulb, name: 'Problem-solving Skills', description: 'Creative and analytical solutions' },
                   { icon: RefreshCw, name: 'Adaptability', description: 'Flexibility in dynamic environments' },
                   { icon: Eye, name: 'Attention to Detail', description: 'Precision and thoroughness' },
-                  { icon: Trophy, name: 'Leadership Skills', description: 'Guiding teams to success' }
+                  { icon: Trophy, name: 'Leadership Skills', description: 'Guiding teams to success' },
+                  { icon: Clock, name: 'Time Management', description: 'Efficient prioritization and productivity' }
                 ].map((skill) => (
                   <div key={skill.name} className="group flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                     <skill.icon className="w-5 h-5 mt-1 group-hover:scale-110 transition-transform" />
