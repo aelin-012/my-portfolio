@@ -435,7 +435,7 @@ function App() {
                       </span>
                     ) : (
                       <span className="flex items-center gap-1 text-yellow-500 text-sm">
-                        <Zap className="w-4 h-4 animate-pulse" /> Ongoing
+                        <Zap className="w-4 h-4 animate-pulse" /> Completed
                       </span>
                     )}
                   </div>
