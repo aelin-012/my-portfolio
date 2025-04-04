@@ -405,7 +405,7 @@ function App() {
               },
               {
                 title: "Google Business Intelligence Professional Certificate",
-                link: "", // Add your link here
+                link: "https://drive.google.com/file/d/1VaBIIBTYphgvJpP0SVdN537oAcFtBs5c/view?usp=sharing",
                 issuer: "Coursera Platform",
                 date: "Mar 2025 - Present",
                 status: "Ongoing",
