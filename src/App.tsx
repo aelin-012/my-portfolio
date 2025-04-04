@@ -434,7 +434,7 @@ function App() {
                         <ClipboardCheckIcon className="w-4 h-4" /> Completed
                       </span>
                     ) : (
-                      <span className="flex items-center gap-1 text-yellow-500 text-sm">
+                      <span className="flex items-center gap-1 text-green-500 text-sm">
                         <ClipboardCheckIcon className="w-4 h-4" /> Completed
                       </span>
                     )}
