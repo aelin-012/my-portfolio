@@ -253,7 +253,7 @@ function App() {
                 field: "Electronics and Communication Engineering",
                 institution: "Amrita Vishwa Vidyapeetham",
                 location: "Coimbatore",
-                score: "CGPA: 7.23"
+                score: "CGPA: 7.35"
               }
             ].map((edu, index) => (
               <div 
