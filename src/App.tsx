@@ -397,7 +397,7 @@ function App() {
             {[
               {
                 title: "Google Data Analytics Professional Certificate",
-                link: "https://drive.google.com/file/d/1oGMQ9_n3aeOqa4330LHuudzhssFmujdo/view", // Add your link here
+                link: "https://drive.google.com/file/d/1oGMQ9_n3aeOqa4330LHuudzhssFmujdo/view",
                 issuer: "Coursera Platform",
                 date: "Jan 2025 - Mar 2025",
                 status: "Completed",
@@ -409,7 +409,7 @@ function App() {
                 issuer: "Coursera Platform",
                 date: "Mar 2025 - Present",
                 status: "Ongoing",
-                description: "Currently pursuing skills in business intelligence."
+                description: "Completed training focused on business intelligence concepts and tools."
               }
             ].map((cert, index) => (
               <div 
