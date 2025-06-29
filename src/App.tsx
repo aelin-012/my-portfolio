@@ -22,7 +22,7 @@ function App() {
       });
     }, { threshold: 0.5 });
 
-    document.querySelectorAll('section[id]').forEach((section) => {
+    document.querySelectorAll('section[id]').forEach((section) => { 
       observer.observe(section);
     });
 
