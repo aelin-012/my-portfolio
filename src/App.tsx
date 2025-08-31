@@ -52,7 +52,7 @@ function App() {
 
   const technicalSkillsCategories = [
     {
-      "category": "Scripting & Query Languages",
+      "category": "Programming & Data Analysis",
       "skills": [
         { "name": "Python", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
         { "name": "R", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" },
@@ -61,14 +61,22 @@ function App() {
     },
     
     {
-      category: 'Data Visualization Tools',
+      category: 'Data Visualization & BI Tools',
       skills: [
         { name: 'Tableau', logo: '/my-portfolio/logos/tableau.svg' },
         { name: 'Power BI', logo: '/my-portfolio/logos/power bi.svg' },
       ],
     },
     {
-      category: 'Database Tools',
+      category: 'Web Technologies',
+      skills: [
+        { name: 'HTML', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        { name: 'CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+      ],
+    },
+    {
+      category: 'Databases & Querying',
       skills: [
         { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
         { name: 'BigQuery Sandbox', logo: '/my-portfolio/logos/bigquery.svg' },
@@ -82,7 +90,7 @@ function App() {
       ],
     },
     {
-      category: 'Productivity Tools',
+      category: 'Productivity Suites',
       "skills": [
     { "name": "Microsoft Excel", "logo": "/my-portfolio/logos/excel.png" },
     { "name": "Google Sheets", "logo": "/my-portfolio/logos/sheets.svg" },
@@ -295,12 +303,22 @@ function App() {
           <div id="experience" className="max-w-4xl mx-auto space-y-6">
             {[
               {
+                role: "Programmer Analyst Trainee",
+                company: "Cognizant",
+                duration: "Jul 2025 - Present",
+                location: "Coimbatore",
+                description: "PAT in Playwright Automation Testing with strong foundations in web technologies and SQL. Serving as Cohort Representative, driving collaboration and leadership within the cohort.",
+
+              },
+              {
                 role: "Student Intern",
                 company: "Hirotec India Private Limited",
                 duration: "June 2024",
                 location: "Coimbatore",
-                description: "Gained hands-on experience in SQL and explored key concepts of software development. Strengthened programming skills while working in a professional environment."
-              }
+                description: "Gained hands-on experience in SQL and explored key concepts of software development. Strengthened programming skills while working in a professional environment.",
+
+              },
+              
             ].map((exp, index) => (
               <div 
                 key={index} 
@@ -308,10 +326,24 @@ function App() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                 <div className="relative">
-                  <h3 className="text-xl font-semibold mb-1 text-gray-800 dark:text-gray-200">{exp.role}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{exp.company} • {exp.duration}</p>
-                  <p className="text-gray-700 dark:text-gray-300 mb-2">{exp.location}</p>
-                  <p className="text-gray-700 dark:text-gray-300 text-base">{exp.description}</p>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold mb-1 text-gray-800 dark:text-gray-200">{exp.role}</h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="font-medium text-gray-700 dark:text-gray-300">{exp.company}</span>
+                        <span className="text-gray-400 dark:text-gray-500">•</span>
+                        <span className="text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">{exp.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-1 text-gray-600 dark:text-gray-400 text-sm">
+                        <span className="inline-block w-4 h-4">📍</span>
+                        <span>{exp.location}</span>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div className="pl-3 border-l-2 border-gray-200 dark:border-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300 text-base">{exp.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -358,9 +390,9 @@ function App() {
             <div className="skill-card bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <Users className="w-6 h-6" />
-                <h3 className="text-2xl font-bold">Soft Skills</h3>
+                <h3 className="text-2xl font-bold">Professional Skills</h3>
               </div>
-              <div className="space-y-6">
+              <div className="flex flex-col justify-between h-full gap-2">
                 {[
                   { icon: Presentation, name: 'Presentation Skills', description: 'Effective delivery of ideas' },
                   { icon: UserPlus, name: 'Collaboration', description: 'Working well in teams' },
@@ -372,7 +404,7 @@ function App() {
                   { icon: Trophy, name: 'Leadership Skills', description: 'Guiding teams to success' },
                   { icon: Clock, name: 'Time Management', description: 'Efficient prioritization and productivity' }
                 ].map((skill) => (
-                  <div key={skill.name} className="group flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+<div key={skill.name} className="group flex items-start gap-3 p-2 rounded-lg transition-colors flex-1">
                     <skill.icon className="w-5 h-5 mt-1 group-hover:scale-110 transition-transform" />
                     <div>
                       <h4 className="font-semibold mb-1">{skill.name}</h4>
