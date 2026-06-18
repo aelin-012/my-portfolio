@@ -1,15 +1,28 @@
-import { useState, useEffect } from 'react';
-import { Github, Mail, FileText, ExternalLink, Heart, Coffee, Clock, Sparkles, Star, Users, Zap, Moon, Sun, Linkedin, BarChart, ClipboardCheckIcon, Presentation, UserPlus, MessageSquare, Search, Lightbulb, RefreshCw, Eye, Trophy } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Github, Mail, FileText, ExternalLink, Heart, Coffee, Clock, Sparkles, Star, Users, Zap, Moon, Sun, Linkedin, BarChart, ClipboardCheckIcon, Presentation, UserPlus, MessageSquare, Search, Lightbulb, RefreshCw, Eye, Trophy, ChevronDown } from 'lucide-react';
 import { MdInsights } from "react-icons/md";
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [showResumeOptions, setShowResumeOptions] = useState(false);
+  const resumeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (resumeRef.current && !resumeRef.current.contains(event.target as Node)) {
+        setShowResumeOptions(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     setIsVisible(true);
-    
+
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setIsDark(true);
     }
@@ -22,7 +35,7 @@ function App() {
       });
     }, { threshold: 0.5 });
 
-    document.querySelectorAll('section[id]').forEach((section) => { 
+    document.querySelectorAll('section[id]').forEach((section) => {
       observer.observe(section);
     });
 
@@ -59,7 +72,7 @@ function App() {
         { "name": "SQL", "logo": "/my-portfolio/logos/sql.png" }
       ],
     },
-    
+
     {
       category: 'Data Visualization & BI Tools',
       skills: [
@@ -92,12 +105,12 @@ function App() {
     {
       category: 'Productivity Suites',
       "skills": [
-    { "name": "Microsoft Excel", "logo": "/my-portfolio/logos/excel.png" },
-    { "name": "Google Sheets", "logo": "/my-portfolio/logos/sheets.svg" },
-    { "name": "Microsoft Office", "logo": "/my-portfolio/logos/office.svg" },
-    { "name": "Google Workspace", "logo": "/my-portfolio/logos/google.svg" }
-  ],
-}
+        { "name": "Microsoft Excel", "logo": "/my-portfolio/logos/excel.png" },
+        { "name": "Google Sheets", "logo": "/my-portfolio/logos/sheets.svg" },
+        { "name": "Microsoft Office", "logo": "/my-portfolio/logos/office.svg" },
+        { "name": "Google Workspace", "logo": "/my-portfolio/logos/google.svg" }
+      ],
+    }
   ];
 
   return (
@@ -136,9 +149,9 @@ function App() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-400 dark:from-gray-700 dark:to-gray-900 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
               <div className="relative aspect-square w-48 h-48 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl">
-                <img 
-                  src="/my-portfolio/images/profile.jpg" 
-                  alt="Your Name"
+                <img
+                  src="/my-portfolio/images/Profile.jpeg"
+                  alt="Yoshni Nandha Kishore"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -146,44 +159,44 @@ function App() {
 
             <div className="text-center md:text-left">
               <h1 className="text-6xl font-bold mb-4 gradient-text">Yoshni Nandha Kishore</h1>
-              <p className="text-2xl text-gray-600 dark:text-gray-400 mb-6">Data Analyst & Insights Developer</p>
-              
+              <p className="text-2xl text-gray-600 dark:text-gray-400 mb-6">Data Analytics | Management & Marketing Enthusiast | MBA Aspirant</p>
+
               <div className="flex justify-center md:justify-start items-center gap-4 mb-8">
-                <a 
+                <a
                   href="mailto:yoshni2003@gmail.com"
                   className="group relative bg-white dark:bg-gray-800 p-3 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div 
+                  <div
                     className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-300 via-red-300 via-yellow-300 to-green-300 dark:from-blue-400 dark:via-red-400 dark:via-yellow-400 dark:to-green-400 opacity-0 group-hover:opacity-80 transition-opacity duration-300 blur-md"
                   ></div>
-                  <img 
-                    src="/my-portfolio/logos/google.svg" 
+                  <img
+                    src="/my-portfolio/logos/google.svg"
                     alt="Email"
                     className="w-6 h-6 relative z-10 transition-transform duration-300 group-hover:scale-105"
                   />
                 </a>
-                <a 
-                  href="https://www.linkedin.com/in/yoshni-nandha-kishore" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/yoshni-nandha-kishore"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="group relative bg-white dark:bg-gray-800 p-3 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-200 to-blue-300 dark:from-blue-900 dark:to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
-                  <img 
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
                     alt="LinkedIn"
                     className="w-6 h-6 relative z-10 transition-transform group-hover:scale-110"
                   />
                 </a>
-                <a 
-                  href="https://github.com/aelin-012" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/aelin-012"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="group relative bg-white dark:bg-gray-800 p-3 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
-                  <img 
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
                     alt="GitHub"
                     className="w-6 h-6 relative z-10 transition-transform group-hover:scale-110 dark:invert"
                   />
@@ -195,15 +208,42 @@ function App() {
                   Contact Me
                   <Mail className="w-4 h-4 group-hover:rotate-12 transition-transform" />
                 </a>
-                <a 
-                  href="/my-portfolio/resume.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="group border-2 border-black dark:border-white px-8 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2"
-                >
-                  Resume
-                  <FileText className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+
+                <div className="relative" ref={resumeRef}>
+                  <button
+                    onClick={() => setShowResumeOptions(!showResumeOptions)}
+                    className="group border-2 border-black dark:border-white px-8 py-3 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2"
+                  >
+                    Resume
+                    <FileText className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showResumeOptions ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {showResumeOptions && (
+                    <div className="absolute bottom-full mb-2 left-0 w-48 bg-white dark:bg-gray-800 border-2 border-black dark:border-white rounded-2xl shadow-xl overflow-hidden z-20 animate-in fade-in slide-in-from-bottom-2 duration-200">
+                      <a
+                        href="/my-portfolio/Tech Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border-b border-gray-100 dark:border-gray-700"
+                        onClick={() => setShowResumeOptions(false)}
+                      >
+                        <FileText className="w-4 h-4" />
+                        Tech
+                      </a>
+                      <a
+                        href="/my-portfolio/Non-Tech Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        onClick={() => setShowResumeOptions(false)}
+                      >
+                        <FileText className="w-4 h-4" />
+                        Non-Tech
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -213,16 +253,16 @@ function App() {
       <section id="about" className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 gradient-text tracking-tight">About Me</h2>
-          
+
           <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm relative overflow-hidden transition-colors duration-300">
               <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-lg font-light">
-                👋 Hi there! I'm an aspiring data analyst with a passion for turning raw data into meaningful insights. 
-                With a strong foundation in data analysis, problem-solving, and visualization, I love uncovering patterns that drive smarter decision-making. 
+                👋 Hi there! I'm an aspiring data analyst with a passion for turning raw data into meaningful insights.
+                With a strong foundation in data analysis, problem-solving, and visualization, I love uncovering patterns that drive smarter decision-making.
                 Beyond numbers, I'm also a management enthusiast who thrives on organization and leadership.
                 <br /><br />
-                When I’m not diving into datasets, you’ll find me reading a good book, listening to music and podcasts, or binge-watching movies and series. 
+                When I’m not diving into datasets, you’ll find me reading a good book, listening to music and podcasts, or binge-watching movies and series.
                 I also love experimenting in the kitchen—always with a cup of coffee in hand! ☕📊✨
                 <br /><br />
                 Let’s connect and make data work its magic!
@@ -252,7 +292,7 @@ function App() {
           </div>
 
           <h2 className="text-4xl font-bold text-center mb-12 gradient-text tracking-tight">Education</h2>
-          
+
           <div id="education" className="max-w-4xl mx-auto space-y-6">
             {[
               {
@@ -264,8 +304,8 @@ function App() {
                 score: "CGPA: 7.35"
               }
             ].map((edu, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -318,10 +358,10 @@ function App() {
                 description: "Gained hands-on experience in SQL and explored key concepts of software development. Strengthened programming skills while working in a professional environment.",
 
               },
-              
+
             ].map((exp, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -404,7 +444,7 @@ function App() {
                   { icon: Trophy, name: 'Leadership Skills', description: 'Guiding teams to success' },
                   { icon: Clock, name: 'Time Management', description: 'Efficient prioritization and productivity' }
                 ].map((skill) => (
-<div key={skill.name} className="group flex items-start gap-3 p-2 rounded-lg transition-colors flex-1">
+                  <div key={skill.name} className="group flex items-start gap-3 p-2 rounded-lg transition-colors flex-1">
                     <skill.icon className="w-5 h-5 mt-1 group-hover:scale-110 transition-transform" />
                     <div>
                       <h4 className="font-semibold mb-1">{skill.name}</h4>
@@ -444,8 +484,8 @@ function App() {
                 description: "Completed training focused on business intelligence concepts and tools."
               }
             ].map((cert, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
               >
                 <div className="relative">
@@ -453,9 +493,9 @@ function App() {
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{cert.issuer} • {cert.date}</p>
                   <p className="text-gray-700 dark:text-gray-300 text-base mb-2">{cert.description}</p>
                   <div className="flex items-center gap-2">
-                    <a 
-                      href={cert.link || "#"} 
-                      target="_blank" 
+                    <a
+                      href={cert.link || "#"}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:underline text-sm"
                     >
@@ -483,19 +523,19 @@ function App() {
           <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { 
+              {
                 title: "Case Studies Portfolio",
                 description: "Data-driven business insights using Excel, SQL, R, and Tableau",
                 image: "/my-portfolio/images/Case Studies Portfolio.webp",
                 techStack: ["Excel", "SQL", "R", "Tableau"],
-                link: "https://yoshni-portfolio.blogspot.com/search/label/case-studies" 
+                link: "https://yoshni-portfolio.blogspot.com/search/label/case-studies"
               },
               {
                 title: "Career Application Insight Tracker",
                 description: "Data-driven insights and dashboards to optimize job applications and interview success.",
                 image: "/my-portfolio/images/Career Application Insight Tracker.webp",
                 techStack: ["Excel", "SQL", "R", "Tableau"],
-                link: "https://yoshni-portfolio.blogspot.com/2025/03/career-application-insight-tracker.html" 
+                link: "https://yoshni-portfolio.blogspot.com/2025/03/career-application-insight-tracker.html"
               },
               {
                 title: "Automated IoT-Enabled Women’s Safety System with Real-Time Monitoring",
@@ -506,14 +546,14 @@ function App() {
             ].map((project, index) => (
               <div key={index} className="project-card group relative">
                 {project.link ? (
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
+                  <a
+                    href={project.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="block relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700"
                   >
                     <div className="absolute inset-0 bg-black dark:bg-white opacity-0 group-hover:opacity-60 transition-opacity duration-300 z-10"></div>
-                    <img 
+                    <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
@@ -526,7 +566,7 @@ function App() {
                   </a>
                 ) : (
                   <div className="block relative overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-700 cursor-default">
-                    <img 
+                    <img
                       src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover"
@@ -538,8 +578,8 @@ function App() {
                   <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
-                      <span 
-                        key={tech} 
+                      <span
+                        key={tech}
                         className="text-xs font-medium bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 px-3 py-1 rounded-full shadow-sm hover:bg-gradient-to-r hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-700 transition-all duration-300"
                       >
                         {tech}
@@ -594,14 +634,14 @@ function App() {
                 logo: "/my-portfolio/logos/amrita.svg"
               }
             ].map((item, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="group bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700 flex items-start gap-4"
               >
                 <div className="w-12 h-12 flex-shrink-0">
                   {item.logo ? (
-                    <img 
-                      src={item.logo} 
+                    <img
+                      src={item.logo}
                       alt={`${item.organization} logo`}
                       className="w-full h-full object-contain rounded-full"
                     />
@@ -624,8 +664,8 @@ function App() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-10 gradient-text tracking-wide">Get in Touch</h2>
           <div className="max-w-lg mx-auto flex flex-col sm:flex-row justify-center gap-4">
-            <a 
-              href="mailto:yoshni2003@gmail.com" 
+            <a
+              href="mailto:yoshni2003@gmail.com"
               className="group flex items-center gap-3 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-700 w-full sm:w-auto"
             >
               <div className="bg-gray-100 dark:bg-gray-700 p-2 rounded-full group-hover:bg-gray-200 dark:group-hover:bg-gray-600 transition-colors">
@@ -636,9 +676,9 @@ function App() {
                 <span className="text-gray-600 dark:text-gray-400 text-xs whitespace-nowrap">yoshni2003@gmail.com</span>
               </div>
             </a>
-            <a 
-              href="https://github.com/aelin-012" 
-              target="_blank" 
+            <a
+              href="https://github.com/aelin-012"
+              target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-700 w-full sm:w-auto"
             >
@@ -650,9 +690,9 @@ function App() {
                 <span className="text-gray-600 dark:text-gray-400 text-xs whitespace-nowrap">github.com/aelin-012</span>
               </div>
             </a>
-            <a 
-              href="https://www.linkedin.com/in/yoshni-nandha-kishore" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/yoshni-nandha-kishore"
+              target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 p-4 bg-white dark:bg-gray-800 rounded-xl hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-gray-100 dark:border-gray-700 w-full sm:w-auto"
             >
