@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Mail, FileText, ExternalLink, Heart, Coffee, Clock, Users, Linkedin, BarChart, ClipboardCheckIcon, Presentation, UserPlus, MessageSquare, Search, Lightbulb, RefreshCw, Eye, Trophy, ChevronDown, PieChart, LayoutDashboard, CheckSquare, Database, Server, BrainCircuit, Globe, Briefcase, Target, LineChart, CheckCircle2, Settings, Calendar, ListChecks, ArrowUpRight, CalendarDays, Palette, Image as ImageIcon, Video, Share2, Sparkles, Handshake, Crown, UserCheck, Layers, Rocket, Focus } from 'lucide-react';
-import { MdInsights } from "react-icons/md";
+import { Mail, FileText, ExternalLink, Heart, Clock, Users, Linkedin, ClipboardCheckIcon, Presentation, MessageSquare, Search, Lightbulb, RefreshCw, ChevronDown, PieChart, LayoutDashboard, CheckSquare, BrainCircuit, Globe, Briefcase, Target, LineChart, CheckCircle2, Settings, Calendar, ListChecks, ArrowUpRight, CalendarDays, Palette, Image as ImageIcon, Video, Share2, Sparkles, Handshake, Crown, UserCheck, Layers, Rocket, Focus } from 'lucide-react';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -123,7 +122,7 @@ function App() {
     },
   ];
 
-  const techSkills = [
+  const techSkills: any[] = [
     {
       category: "Core Tools & Programming",
       skills: [
@@ -164,7 +163,7 @@ function App() {
     }
   ];
 
-  const businessCreativeSkills = [
+  const businessCreativeSkills: any[] = [
     {
       category: "Business & Strategy",
       skills: [
@@ -196,7 +195,7 @@ function App() {
     }
   ];
 
-  const professionalSkills = [
+  const professionalSkills: any[] = [
     {
       category: "Communication & Collaboration",
       skills: [
@@ -629,7 +628,7 @@ function App() {
                   <div key={category.category}>
                     <h4 className="text-sm font-bold tracking-wider mb-3 text-brand-blue/80 dark:text-blue-400 uppercase">{category.category}</h4>
                     <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill) => (
+                      {category.skills.map((skill: any) => (
                         <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 rounded-full border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
                           {skill.image ? (
                             <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
@@ -661,7 +660,7 @@ function App() {
                   <div key={category.category}>
                     <h4 className="text-sm font-bold tracking-wider mb-3 text-brand-blue/80 dark:text-blue-400 uppercase">{category.category}</h4>
                     <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill) => (
+                      {category.skills.map((skill: any) => (
                         <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 rounded-full border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
                           {skill.image ? (
                             <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
@@ -693,7 +692,7 @@ function App() {
                   <div key={category.category}>
                     <h4 className="text-sm font-bold tracking-wider mb-4 text-brand-blue/80 dark:text-blue-400 uppercase text-center">{category.category}</h4>
                     <div className="flex flex-col gap-3">
-                      {category.skills.map((skill) => (
+                      {category.skills.map((skill: any) => (
                         <div key={skill.name} className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
                           {skill.image ? (
                             <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
