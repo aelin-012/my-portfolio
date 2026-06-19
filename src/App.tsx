@@ -53,11 +53,15 @@ function App() {
     { id: 'contact', label: 'Contact' },
   ];
 
-  const projectCategories = [
-    { label: "Data Analytics", note: "Case studies and insights" },
-    { label: "Career Tracking", note: "Application and interview dashboarding" },
-    { label: "IoT + ML", note: "Smart systems and automation" },
-  ];
+  type Project = {
+    title: string;
+    subtitle?: string;
+    description: string;
+    techStack: string[];
+    categoryLabel: string;
+    categoryNote?: string;
+    link?: string;
+  };
 
   type SingleExperience = {
     type: "single";
@@ -71,11 +75,9 @@ function App() {
   type GroupExperience = {
     type: "group";
     company: string;
-    subtitle: string;
     duration: string;
     roles: Array<{
       role: string;
-      duration: string;
       location: string;
       bulletPoints: string[];
     }>;
@@ -83,25 +85,38 @@ function App() {
 
   const experiences: Array<SingleExperience | GroupExperience> = [
     {
-      type: "single",
-      role: "AI/ML Intern",
-      company: "SANLAYAN (Defense Technology Solutions)",
+      type: "group",
+      company: "Sanlayan Technologies",
       duration: "Jan 2026 - Present",
-      location: "Bengaluru, Karnataka",
+      roles: [
+        {
+          role: "AI/ML Intern",
+          location: "Bengaluru, Karnataka",
+          bulletPoints: [
+            "Developing AI/ML solutions for radar-based defense systems, working with data processing, analytical workflows, and software development activities.",
+            "Collaborating with cross-functional engineering teams to analyze business and technical requirements, support solution development, and contribute to mission-critical applications.",
+          ],
+        },
+      ],
+    },
+    {
+      type: "single",
+      role: "Marketing & Business Experimentation",
+      company: "Self-MBA Program",
+      duration: "Present",
+      location: "MBAthinking",
       bulletPoints: [
-        "Developing AI/ML solutions for radar-based defense systems, working with data processing, analytical workflows, and software development activities.",
-        "Collaborating with cross-functional engineering teams to analyze business and technical requirements, support solution development, and contribute to mission-critical applications.",
+        "Applying concepts across marketing, strategy, product management, finance, analytics, and operations through practical business experiments.",
+        "Experimenting with content creation, audience engagement, positioning, and growth initiatives to build hands-on understanding of customer behavior, marketing effectiveness, and business decision-making.",
       ],
     },
     {
       type: "group",
       company: "Cognizant",
-      subtitle: "IT Services and IT Consulting",
       duration: "Jul 2025 - Dec 2025",
       roles: [
         {
           role: "Programmer Analyst Trainee",
-          duration: "Nov 2025 - Dec 2025",
           location: "Chennai, Tamil Nadu",
           bulletPoints: [
             "Assigned to an insurance-domain project, contributing to software testing activities and quality assurance processes.",
@@ -109,7 +124,6 @@ function App() {
         },
         {
           role: "Programmer Analyst Trainee",
-          duration: "Jul 2025 - Oct 2025",
           location: "Coimbatore, Tamil Nadu",
           bulletPoints: [
             "Completed structured training in web development, software testing, and analytical problem-solving fundamentals.",
@@ -168,6 +182,33 @@ function App() {
         { "name": "Google Workspace", "logo": `${assetBase}logos/google.svg` }
       ],
     }
+  ];
+
+  const featuredProjects: Project[] = [
+    {
+      title: "Marketing & Business Experimentation",
+      description: "Applying business concepts through practical experiments in marketing, strategy, product management, finance, analytics, and growth initiatives.",
+      techStack: ["Marketing", "Strategy", "Product", "Finance"],
+      categoryLabel: "SELF-MBA",
+    },
+    {
+      title: "Case Studies Portfolio",
+      description: "Analyzing real-world business challenges to generate data-driven insights, recommendations, and strategic solutions.",
+      techStack: ["Excel", "SQL", "R", "Tableau"],
+      categoryLabel: "DATA ANALYTICS",
+    },
+    {
+      title: "Career Application Insight Tracker",
+      description: "Transforming recruitment data into actionable insights on hiring trends, compensation patterns, and role requirements.",
+      techStack: ["Excel", "SQL", "R", "Tableau"],
+      categoryLabel: "PEOPLE ANALYTICS",
+    },
+    {
+      title: "Automated IoT-Enabled Women's Safety System with Real-Time Monitoring",
+      description: "Developing an intelligent real-time monitoring solution using IoT and analytics to enhance safety and emergency response.",
+      techStack: ["Python", "IoT", "ML", "Hardware Model"],
+      categoryLabel: "IOT + MACHINE LEARNING",
+    },
   ];
 
   return (
@@ -475,26 +516,18 @@ function App() {
                     </>
                   ) : (
                     <>
-                      <div className="flex items-start justify-between gap-4 mb-5">
-                        <div>
-                          <h3 className="text-xl font-bold mb-1 text-brand-blue dark:text-blue-400">{exp.company}</h3>
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="font-medium text-gray-700 dark:text-gray-300">{exp.subtitle}</span>
-                            <span className="text-gray-400 dark:text-gray-500">•</span>
-                            <span className="text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">{exp.duration}</span>
-                          </div>
-                        </div>
+                      <div className="flex items-center justify-between gap-4 mb-5">
+                        <h3 className="text-xl font-bold text-brand-blue dark:text-blue-400">{exp.company}</h3>
+                        <span className="shrink-0 text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">{exp.duration}</span>
                       </div>
 
                       <div className="relative pl-6">
                         <div className="absolute left-[11px] top-2 bottom-2 w-px bg-gray-200 dark:bg-gray-700"></div>
                         {exp.roles.map((role, roleIndex) => (
-                          <div key={`${role.duration}-${roleIndex}`} className={`relative pb-6 ${roleIndex === exp.roles.length - 1 ? 'pb-0' : ''}`}>
-                            <div className="absolute left-[-1px] top-2 h-3 w-3 rounded-full bg-brand-blue ring-4 ring-gray-50 dark:ring-gray-800"></div>
+                          <div key={`${role.role}-${roleIndex}`} className={`relative pb-6 ${roleIndex === exp.roles.length - 1 ? 'pb-0' : ''}`}>
                             <div className="pl-6">
                               <h4 className="text-lg font-bold mb-1 text-gray-800 dark:text-gray-100">{role.role}</h4>
-                              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                                <span className="text-gray-600 dark:text-gray-300 text-sm bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">{role.duration}</span>
+                              <div className="flex items-center gap-2 mb-3 flex-wrap">
                                 <span className="text-gray-400 dark:text-gray-500">📍</span>
                                 <span className="text-gray-600 dark:text-gray-400 text-sm">{role.location}</span>
                               </div>
@@ -599,11 +632,10 @@ function App() {
             {[
               {
                 title: "Self-MBA Program",
-                link: "https://drive.google.com/drive/folders/1qRezDMcYWl_SFQe1u7AHE4cfU22nLv9Z",
                 issuer: "MBAthinking",
                 date: "May 2026 - Present",
                 status: "Ongoing",
-                description: "Certifications by MBAthinking.",
+                description: "Ongoing program covering marketing, strategy, product, finance, and analytics.",
               },
               {
                 title: "Google Data Analytics Professional Certificate",
@@ -668,54 +700,23 @@ function App() {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                title: "Case Studies Portfolio",
-                description: "Data-driven business insights using Excel, SQL, R, and Tableau",
-                techStack: ["Excel", "SQL", "R", "Tableau"],
-                link: "https://yoshni-portfolio.blogspot.com/search/label/case-studies"
-              },
-              {
-                title: "Career Application Insight Tracker",
-                description: "Data-driven insights and dashboards to optimize job applications and interview success.",
-                techStack: ["Excel", "SQL", "R", "Tableau"],
-                link: "https://yoshni-portfolio.blogspot.com/2025/03/career-application-insight-tracker.html"
-              },
-              {
-                title: "Automated IoT-Enabled Women's Safety System with Real-Time Monitoring",
-                description: "IoT-enabled women's safety detection with Arduino and machine learning.",
-                techStack: ["Python", "IoT", "ML", "Hardware Model"],
-              }
-            ].map((project, index) => {
-              const category = projectCategories[index % projectCategories.length];
-
+            {featuredProjects.map((project, index) => {
               const card = (
                 <>
                   <div className="relative border-b border-gray-100 bg-gradient-to-r from-white via-brand-beige/35 to-white px-6 py-5 pr-24 dark:border-gray-700 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
                     <div className="flex flex-col items-start gap-2">
-                      <span className="inline-flex h-10 w-[170px] items-center justify-center rounded-full bg-brand-blue/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] whitespace-nowrap text-brand-blue dark:bg-blue-400/10 dark:text-blue-300">
-                        {category.label}
+                      <span className="inline-flex min-h-11 w-fit max-w-full items-center justify-center rounded-full bg-brand-blue/10 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-center leading-tight text-brand-blue dark:bg-blue-400/10 dark:text-blue-300">
+                        {project.categoryLabel}
                       </span>
-                      <p className="w-[170px] text-left text-sm leading-snug text-gray-500 dark:text-gray-400">
-                        {category.note}
-                      </p>
                     </div>
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="absolute right-5 top-1/2 inline-flex -translate-y-1/2 items-center gap-1.5 rounded-full border border-brand-blue/10 bg-white/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-blue shadow-sm transition-colors hover:bg-white dark:border-blue-300/20 dark:bg-gray-900/75 dark:text-blue-300"
-                        >
-                          <ExternalLink className="h-3 w-3" />
-                          Open link
-                        </a>
-                      )}
                   </div>
                   <div className="p-6">
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <div>
+                    <div className="mb-4 min-h-[128px]">
+                      <div className="flex flex-col gap-2">
                         <h3 className="text-xl font-bold mb-2 text-blue-500 dark:text-blue-400">{project.title}</h3>
+                        {project.subtitle && (
+                          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{project.subtitle}</p>
+                        )}
                         <p className="text-gray-600 dark:text-gray-400">{project.description}</p>
                       </div>
                     </div>
@@ -759,38 +760,38 @@ function App() {
           <div className="max-w-4xl mx-auto space-y-8">
             {[
               {
-                activity: "Class Representative",
-                organization: "Amrita Vishwa Vidyapeetham",
-                duration: "Oct 2021 - Sep 2022",
-                description: "Strategically facilitated communication between students and faculty, and coordinated academic schedules & events.",
-                logo: `${assetBase}logos/amrita.svg`
-              },
-              {
-                activity: "GDSC - Student Core Team",
-                organization: "Google Developer Student Club",
-                duration: "Aug 2023 - May 2024",
-                description: "Designed & delivered targeted resources, workshops, and networking for technical skill development and career growth.",
-                logo: `${assetBase}logos/gdsc.svg`
-              },
-              {
-                activity: "The Elite Club",
-                organization: "Amrita Vishwa Vidyapeetham",
-                duration: "Oct 2023 - Sep 2024",
-                description: "Organized workshops & events to instill entrepreneurship and leadership, empowering students with business ideation.",
-                logo: `${assetBase}logos/elite.jpg`
-              },
-              {
                 activity: "IETE Club",
-                organization: "Institution of Electronics and Telecommunication Engineers",
+                organization: "Event Management Team / Overall Coordinator",
                 duration: "Nov 2023 - Sep 2024",
-                description: "Conducted workshops and events, coordinated a major workshop with oneAPI Intel AI Hackathon.",
+                description: "Coordinated a flagship technical event with the Intel oneAPI AI Hackathon, managing execution for 450+ participants.",
                 logo: `${assetBase}logos/iete.jpg`
               },
               {
-                activity: "Finance Coordinator - Gokulastami Event, ECE Dept",
-                organization: "Amrita Vishwa Vidyapeetham",
+                activity: "The Elite Club",
+                organization: "Event Management Team",
+                duration: "Oct 2023 - Sep 2024",
+                description: "Planned and delivered business-focused events promoting entrepreneurship, leadership, and innovation.",
+                logo: `${assetBase}logos/elite.jpg`
+              },
+              {
+                activity: "ECE Department - Gokulashtami Event",
+                organization: "Finance Coordinator",
                 duration: "Aug 2024",
-                description: "Optimized budget allocation using advanced Excel analytics for financial compliance and efficiency.",
+                description: "Managed budgeting and vendor coordination for an event budget exceeding ₹56,000.",
+                logo: `${assetBase}logos/amrita.svg`
+              },
+              {
+                activity: "Google Developers Student Club",
+                organization: "Student Core Team Member",
+                duration: "Aug 2023 - May 2024",
+                description: "Served as SPOC and helped drive awareness initiatives that attracted 250+ participants to major club events.",
+                logo: `${assetBase}logos/gdsc.svg`
+              },
+              {
+                activity: "Class Representative",
+                organization: "Amrita Vishwa Vidyapeetham",
+                duration: "Oct 2021 - Sep 2022",
+                description: "Streamlined communication on schedules, assignments, and faculty coordination for a class of 65 students.",
                 logo: `${assetBase}logos/amrita.svg`
               }
             ].map((item, index) => (
@@ -851,20 +852,6 @@ function App() {
               </div>
             </a>
             <a
-              href="https://github.com/aelin-012"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-5 bg-white/50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-brand-blue/5 dark:border-gray-700 min-w-[240px]"
-            >
-              <div className="bg-brand-blue/10 dark:bg-gray-700 p-3 rounded-xl group-hover:bg-brand-blue/20 transition-colors">
-                <Github className="w-6 h-6 text-brand-blue dark:text-brand-blue transition-colors" />
-              </div>
-              <div className="text-left">
-                <h3 className="font-bold text-gray-800 dark:text-gray-200">GitHub</h3>
-                <span className="text-gray-600 dark:text-gray-400 text-sm">github.com/aelin-012</span>
-              </div>
-            </a>
-            <a
               href="https://www.linkedin.com/in/yoshni-nandha-kishore"
               target="_blank"
               rel="noopener noreferrer"
@@ -895,3 +882,4 @@ function App() {
 }
 
 export default App;
+
