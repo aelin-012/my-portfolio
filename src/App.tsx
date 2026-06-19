@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Mail, FileText, ExternalLink, Heart, Coffee, Clock, Users, Linkedin, BarChart, ClipboardCheckIcon, Presentation, UserPlus, MessageSquare, Search, Lightbulb, RefreshCw, Eye, Trophy, ChevronDown } from 'lucide-react';
+import { Github, Mail, FileText, ExternalLink, Heart, Coffee, Clock, Users, Linkedin, BarChart, ClipboardCheckIcon, Presentation, UserPlus, MessageSquare, Search, Lightbulb, RefreshCw, Eye, Trophy, ChevronDown, PieChart, LayoutDashboard, CheckSquare, Database, Server, BrainCircuit, Globe, Briefcase, Target, LineChart, CheckCircle2, Settings, Calendar, ListChecks, ArrowUpRight, CalendarDays, Palette, Image as ImageIcon, Video, Share2, Sparkles, Handshake, Crown, UserCheck, Layers, Rocket, Focus } from 'lucide-react';
 import { MdInsights } from "react-icons/md";
 
 function App() {
@@ -123,53 +123,106 @@ function App() {
     },
   ];
 
-  const technicalSkillsCategories = [
+  const techSkills = [
     {
-      "category": "Programming & Data Analysis",
-      "skills": [
-        { "name": "Python", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { "name": "R", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" },
-        { "name": "SQL", "logo": `${assetBase}logos/sql.png` }
-      ],
+      category: "Core Tools & Programming",
+      skills: [
+        { name: "Python", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "SQL", image: `${assetBase}logos/sql.png` }
+      ]
     },
+    {
+      category: "Data & BI Tools",
+      skills: [
+        { name: "Power BI", image: `${assetBase}logos/power bi.svg` },
+        { name: "Tableau", image: `${assetBase}logos/tableau.svg` },
+        { name: "Excel", image: `${assetBase}logos/excel.png` }
+      ]
+    },
+    {
+      category: "Data Skills",
+      skills: [
+        { name: "Data Analysis", icon: LineChart },
+        { name: "Data Visualization", icon: PieChart },
+        { name: "Dashboarding", icon: LayoutDashboard },
+        { name: "Data Validation", icon: CheckSquare }
+      ]
+    },
+    {
+      category: "Databases & Platforms",
+      skills: [
+        { name: "MySQL", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "BigQuery Sandbox", image: `${assetBase}logos/bigquery.svg` }
+      ]
+    },
+    {
+      category: "Tech Foundations",
+      skills: [
+        { name: "AI/ML Fundamentals", icon: BrainCircuit },
+        { name: "Web Development Basics", icon: Globe }
+      ]
+    }
+  ];
 
+  const businessCreativeSkills = [
     {
-      category: 'Data Visualization & BI Tools',
+      category: "Business & Strategy",
       skills: [
-        { name: 'Tableau', logo: `${assetBase}logos/tableau.svg` },
-        { name: 'Power BI', logo: `${assetBase}logos/power bi.svg` },
-      ],
+        { name: "Business Analysis", icon: Briefcase },
+        { name: "Strategic Thinking", icon: Target },
+        { name: "Market Research", icon: Search },
+        { name: "Decision Making", icon: CheckCircle2 }
+      ]
     },
     {
-      category: 'Web Technologies',
+      category: "Operations & Execution",
       skills: [
-        { name: 'HTML', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-        { name: 'CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-      ],
+        { name: "Operations Management", icon: Settings },
+        { name: "Planning & Execution", icon: Calendar },
+        { name: "Project Coordination", icon: ListChecks },
+        { name: "Process Improvement", icon: ArrowUpRight },
+        { name: "Event Management", icon: CalendarDays }
+      ]
     },
     {
-      category: 'Databases & Querying',
+      category: "Creative & Marketing Edge",
       skills: [
-        { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-        { name: 'BigQuery Sandbox', logo: `${assetBase}logos/bigquery.svg` },
-      ],
+        { name: "Visual Design (Canva)", icon: Palette },
+        { name: "Photo Editing", icon: ImageIcon },
+        { name: "Short-form Video Editing (InShot)", icon: Video },
+        { name: "Social Media Content Creation", icon: Share2 },
+        { name: "Design Sensibility / Brand Aesthetics", icon: Sparkles }
+      ]
+    }
+  ];
+
+  const professionalSkills = [
+    {
+      category: "Communication & Collaboration",
+      skills: [
+        { name: "Communication", icon: MessageSquare },
+        { name: "Presentation Skills", icon: Presentation },
+        { name: "Cross-Functional Collaboration", icon: Users },
+        { name: "Relationship Building", icon: Handshake }
+      ]
     },
     {
-      category: 'Development Environments',
+      category: "Leadership & Ownership",
       skills: [
-        { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-        { name: 'RStudio Cloud', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rstudio/rstudio-original.svg' },
-      ],
+        { name: "Leadership", icon: Crown },
+        { name: "People-Centric Approach", icon: UserCheck },
+        { name: "Organizational Skills", icon: Layers },
+        { name: "Initiative & Proactiveness", icon: Rocket }
+      ]
     },
     {
-      category: 'Productivity Suites',
-      "skills": [
-        { "name": "Microsoft Excel", "logo": `${assetBase}logos/excel.png` },
-        { "name": "Google Sheets", "logo": `${assetBase}logos/sheets.svg` },
-        { "name": "Microsoft Office", "logo": `${assetBase}logos/office.svg` },
-        { "name": "Google Workspace", "logo": `${assetBase}logos/google.svg` }
-      ],
+      category: "Execution & Mindset",
+      skills: [
+        { name: "Creative Problem Solving", icon: Lightbulb },
+        { name: "Attention to Detail", icon: Focus },
+        { name: "Adaptability", icon: RefreshCw },
+        { name: "Time Management", icon: Clock }
+      ]
     }
   ];
 
@@ -394,27 +447,26 @@ function App() {
             <div className="bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm relative overflow-hidden transition-colors duration-300 border border-brand-blue/5">
               <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-lg font-light">
-                Hi there! I'm an aspiring data analyst with a passion for turning raw data into meaningful insights.
-                With a strong foundation in data analysis, problem-solving, and visualization, I love uncovering patterns that drive smarter decision-making.
-                Beyond numbers, I'm also a management enthusiast who thrives on organization and leadership.
+                Hi there! 👋 I'm someone who enjoys working at the intersection of data, marketing, and management. I love turning raw data into insights 📊, but also enjoy thinking about how those insights translate into real business decisions and strategies 💡.
                 <br /><br />
-                When I'm not diving into datasets, you'll find me reading a good book, listening to music and podcasts, or binge-watching movies and series.
-                I also love experimenting in the kitchen - always with a cup of coffee in hand!
+                With a foundation in data analysis, problem-solving, and visualization, I’m always curious about patterns, trends, and what they actually mean for growth and impact 🚀. At the same time, I’m equally interested in planning, organizing, and contributing to teams where ideas turn into action 🎯.
                 <br /><br />
-                Let's connect and make data work its magic!
+                Outside of work, I’m usually reading 📖, listening to music 🎵 or podcasts, or binge-watching a good series 📺. I also enjoy experimenting in the kitchen 🍳 — always with a cup of coffee in hand! ☕
+                <br /><br />
+                Let’s connect and build something meaningful together ✨
               </p>
               <div className="flex justify-center gap-10">
                 <div className="flex flex-col items-center group">
-                  <BarChart className="w-8 h-8 mb-2 animate-float text-brand-blue/60 dark:text-gray-400 group-hover:text-brand-blue transition-colors" style={{ animationDelay: '0.2s' }} />
+                  <span className="text-3xl mb-2 animate-float" style={{ animationDelay: '0.2s' }}>📊</span>
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Data-Driven</span>
                 </div>
                 <div className="flex flex-col items-center group">
-                  <ClipboardCheckIcon className="w-8 h-8 mb-2 animate-float text-brand-blue/60 dark:text-gray-400 group-hover:text-brand-blue transition-colors" style={{ animationDelay: '0.4s' }} />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Organized</span>
+                  <span className="text-3xl mb-2 animate-float" style={{ animationDelay: '0.4s' }}>📈</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Growth-Oriented</span>
                 </div>
                 <div className="flex flex-col items-center group">
-                  <Coffee className="w-8 h-8 mb-2 animate-float text-brand-blue/60 dark:text-gray-400 group-hover:text-brand-blue transition-colors" style={{ animationDelay: '0.6s' }} />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Coffee Lover</span>
+                  <span className="text-3xl mb-2 animate-float" style={{ animationDelay: '0.6s' }}>📚</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Avid Reader</span>
                 </div>
               </div>
             </div>
@@ -425,12 +477,28 @@ function App() {
           <div id="education" className="max-w-4xl mx-auto space-y-6">
             {[
               {
-                degree: "Bachelor of Technology",
-                duration: "Oct 2021 - June 2025",
-                field: "Electronics and Communication Engineering",
+                degree: "Bachelor of Technology - B.Tech",
+                duration: "Aug 2021 - May 2025",
+                field: "Electronics and Communications Engineering",
                 institution: "Amrita Vishwa Vidyapeetham",
                 location: "Coimbatore",
-                score: "First class"
+                score: "Grade: First Class"
+              },
+              {
+                degree: "Grade 12",
+                duration: "Jun 2019 - May 2021",
+                field: "Mathematics and Computer Science",
+                institution: "Victory Vidhyalaya Matric Hr Sec School",
+                location: "Coimbatore",
+                score: "Percentage: 91.8%"
+              },
+              {
+                degree: "Grade 10",
+                duration: "Jun 2009 - Mar 2019",
+                institution: "Einstein Public School",
+                location: "Coimbatore",
+                activities: "Activities and societies: I.I.M.U.N, Olympiad, Cambridge English Test, Helen O Grady Drama Academy, VocaBoom, Smile Foundation",
+                score: "Percentage: 91.2%"
               }
             ].map((edu, index) => (
               <motion.div
@@ -447,6 +515,9 @@ function App() {
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{edu.duration}</p>
                   {edu.field && (
                     <p className="text-base text-gray-700 dark:text-gray-300 mb-2 italic">{edu.field}</p>
+                  )}
+                  {edu.activities && (
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{edu.activities}</p>
                   )}
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
@@ -541,73 +612,97 @@ function App() {
       <section id="skills" className="py-20 bg-brand-beige dark:bg-gray-900 transition-colors duration-300">
         <div className="container mx-auto px-4 space-y-16">
           <h2 className="text-4xl font-bold text-center gradient-text">Skills</h2>
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Tech Skills Card */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={revealVariants}
-              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300 border border-brand-blue/5"
+              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300 border border-brand-blue/5 flex flex-col"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <MdInsights className="w-6 h-6 text-brand-blue" />
+              <div className="flex items-center justify-center mb-8">
                 <h3 className="text-2xl font-bold text-brand-blue dark:text-blue-400">Technical Skills</h3>
               </div>
-              <div className="space-y-8">
-                {technicalSkillsCategories.map((category, index) => (
+              <div className="space-y-6 flex-grow">
+                {techSkills.map((category) => (
                   <div key={category.category}>
-                    <h4 className="text-lg font-semibold mb-4 text-brand-blue/80 dark:text-blue-400">{category.category}</h4>
-                    <div className="grid grid-cols-2 gap-6">
+                    <h4 className="text-sm font-bold tracking-wider mb-3 text-brand-blue/80 dark:text-blue-400 uppercase">{category.category}</h4>
+                    <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill) => (
-                        <div key={skill.name} className="group flex items-center gap-3">
-                          <div className="p-2 rounded-lg bg-gray-50 dark:bg-gray-700 transition-colors duration-300 group-hover:scale-110">
-                            <img
-                              src={skill.logo}
-                              alt={skill.name}
-                              className="w-6 h-6 transition-transform group-hover:rotate-12"
-                            />
-                          </div>
-                          <span className="font-medium">{skill.name}</span>
+                        <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 rounded-full border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
+                          {skill.image ? (
+                            <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
+                          ) : (
+                            <skill.icon className="w-4 h-4 text-brand-blue dark:text-blue-400" />
+                          )}
+                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
                         </div>
                       ))}
                     </div>
-                    {index < technicalSkillsCategories.length - 1 && (
-                      <div className="my-6">
-                        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
             </motion.div>
+
+            {/* Business & Creative Skills Card */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={revealVariants}
-              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300 border border-brand-blue/5"
+              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300 border border-brand-blue/5 flex flex-col"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Users className="w-6 h-6 text-brand-blue" />
+              <div className="flex items-center justify-center mb-8">
+                <h3 className="text-2xl font-bold text-brand-blue dark:text-blue-400">Business & Creative</h3>
+              </div>
+              <div className="space-y-6 flex-grow">
+                {businessCreativeSkills.map((category) => (
+                  <div key={category.category}>
+                    <h4 className="text-sm font-bold tracking-wider mb-3 text-brand-blue/80 dark:text-blue-400 uppercase">{category.category}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 rounded-full border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
+                          {skill.image ? (
+                            <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
+                          ) : (
+                            <skill.icon className="w-4 h-4 text-brand-blue dark:text-blue-400" />
+                          )}
+                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Professional Skills Card (Full Width) */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={revealVariants}
+              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300 border border-brand-blue/5 md:col-span-2"
+            >
+              <div className="flex items-center justify-center mb-8">
                 <h3 className="text-2xl font-bold text-brand-blue dark:text-blue-400">Professional Skills</h3>
               </div>
-              <div className="flex flex-col justify-between h-full gap-2">
-                {[
-                  { icon: Presentation, name: 'Presentation Skills', description: 'Effective delivery of ideas' },
-                  { icon: UserPlus, name: 'Collaboration', description: 'Working well in teams' },
-                  { icon: MessageSquare, name: 'Communication', description: 'Clear and concise exchange of info' },
-                  { icon: Search, name: 'Research', description: 'In-depth analysis and investigation' },
-                  { icon: Lightbulb, name: 'Problem-solving Skills', description: 'Creative and analytical solutions' },
-                  { icon: RefreshCw, name: 'Adaptability', description: 'Flexibility in dynamic environments' },
-                  { icon: Eye, name: 'Attention to Detail', description: 'Precision and thoroughness' },
-                  { icon: Trophy, name: 'Leadership Skills', description: 'Guiding teams to success' },
-                  { icon: Clock, name: 'Time Management', description: 'Efficient prioritization and productivity' }
-                ].map((skill) => (
-                  <div key={skill.name} className="group flex items-start gap-3 p-2 rounded-lg transition-colors flex-1">
-                    <skill.icon className="w-5 h-5 mt-1 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <h4 className="font-semibold mb-1">{skill.name}</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{skill.description}</p>
+              <div className="grid md:grid-cols-3 gap-8">
+                {professionalSkills.map((category) => (
+                  <div key={category.category}>
+                    <h4 className="text-sm font-bold tracking-wider mb-4 text-brand-blue/80 dark:text-blue-400 uppercase text-center">{category.category}</h4>
+                    <div className="flex flex-col gap-3">
+                      {category.skills.map((skill) => (
+                        <div key={skill.name} className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
+                          {skill.image ? (
+                            <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
+                          ) : (
+                            <skill.icon className="w-4 h-4 text-brand-blue dark:text-blue-400" />
+                          )}
+                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
@@ -621,6 +716,7 @@ function App() {
             {[
               {
                 title: "Self-MBA Program",
+                link: "#", // NOTE: link to be added here
                 issuer: "MBAthinking",
                 date: "May 2026 - Present",
                 status: "Ongoing",
