@@ -100,17 +100,6 @@ function App() {
       ],
     },
     {
-      type: "single",
-      role: "Marketing & Business Experimentation",
-      company: "Self-MBA Program",
-      duration: "Present",
-      location: "MBAthinking",
-      bulletPoints: [
-        "Applying concepts across marketing, strategy, product management, finance, analytics, and operations through practical business experiments.",
-        "Experimenting with content creation, audience engagement, positioning, and growth initiatives to build hands-on understanding of customer behavior, marketing effectiveness, and business decision-making.",
-      ],
-    },
-    {
       type: "group",
       company: "Cognizant",
       duration: "Jul 2025 - Dec 2025",
