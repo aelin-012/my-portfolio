@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, FileText, ExternalLink, Heart, Clock, Users, Linkedin, ClipboardCheckIcon, Presentation, MessageSquare, Search, Lightbulb, RefreshCw, ChevronDown, PieChart, LayoutDashboard, CheckSquare, BrainCircuit, Globe, Briefcase, Target, LineChart, CheckCircle2, Settings, Calendar, ListChecks, ArrowUpRight, CalendarDays, Palette, Image as ImageIcon, Video, Share2, Sparkles, Handshake, Crown, UserCheck, Layers, Rocket, Focus } from 'lucide-react';
+import { Mail, FileText, ExternalLink, Heart, Clock, Users, Linkedin, ClipboardCheckIcon, Presentation, MessageSquare, Search, Lightbulb, RefreshCw, ChevronDown, PieChart, LayoutDashboard, CheckSquare, BrainCircuit, Globe, Briefcase, Target, LineChart, CheckCircle2, Settings, Calendar, ListChecks, ArrowUpRight, CalendarDays, Palette, Image as ImageIcon, Video, Share2, Sparkles, Handshake, Crown, UserCheck, Layers, Rocket, Focus, BookOpen, Music, Tv, ChefHat, Coffee, Hand } from 'lucide-react';
+import Doodles from './components/Doodles';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -70,6 +71,7 @@ function App() {
     categoryLabel: string;
     categoryNote?: string;
     link?: string;
+    inProgress?: boolean;
   };
 
   type SingleExperience = {
@@ -241,22 +243,23 @@ function App() {
       description: "Applying business concepts through practical experiments in marketing, strategy, product management, finance, analytics, and growth initiatives.",
       techStack: ["Marketing", "Strategy", "Product", "Finance"],
       categoryLabel: "SELF-MBA",
+      inProgress: true,
     },
     {
       title: "Case Studies Portfolio",
-      description: "Analyzing real-world business challenges to generate data-driven insights, recommendations, and strategic solutions.",
+      description: "Analyzed real-world business challenges to generate data-driven insights, recommendations, and strategic solutions.",
       techStack: ["Excel", "SQL", "R", "Tableau"],
       categoryLabel: "DATA ANALYTICS",
     },
     {
       title: "Career Application Insight Tracker",
-      description: "Transforming recruitment data into actionable insights on hiring trends, compensation patterns, and role requirements.",
+      description: "Transformed recruitment data into actionable insights on hiring trends, compensation patterns, and role requirements.",
       techStack: ["Excel", "SQL", "R", "Tableau"],
       categoryLabel: "PEOPLE ANALYTICS",
     },
     {
       title: "Automated IoT-Enabled Women's Safety System with Real-Time Monitoring",
-      description: "Developing an intelligent real-time monitoring solution using IoT and analytics to enhance safety and emergency response.",
+      description: "Developed an intelligent real-time monitoring solution using IoT and analytics to enhance safety and emergency response.",
       techStack: ["Python", "IoT", "ML", "Hardware Model"],
       categoryLabel: "IOT + MACHINE LEARNING",
     },
@@ -266,37 +269,14 @@ function App() {
     <div className={`min-h-screen bg-brand-beige dark:bg-gray-950 text-gray-800 dark:text-gray-100 font-sans transition-colors duration-500 overflow-x-hidden`}>
       {/* Background Blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-blue/10 dark:bg-blue-900/10 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-blue/5 dark:bg-indigo-900/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <Doodles />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-blue/10 dark:bg-blue-900/10 rounded-full border-brand-blue/20 blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-blue/5 dark:bg-indigo-900/10 rounded-full border-brand-blue/20 blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
         
-        {/* Animated Floating Shapes */}
-        <motion.div 
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 10, 0]
-          }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] right-[10%] w-12 h-12 border-2 border-brand-blue/10 rounded-lg hidden lg:block"
-        />
-        <motion.div 
-          animate={{ 
-            y: [0, 20, 0],
-            rotate: [0, -10, 0]
-          }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-[30%] left-[5%] w-16 h-16 border-2 border-brand-blue/10 rounded-full hidden lg:block"
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[60%] right-[5%] w-32 h-32 bg-brand-blue/5 rounded-full blur-3xl hidden lg:block"
-        />
+
       </div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 floating-nav bg-brand-beige/70 dark:bg-gray-900/70 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-gray-200 dark:border-gray-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 floating-nav bg-brand-beige/70 dark:bg-gray-900/70 backdrop-blur-md shadow-cute transition-all duration-300 border-b border-gray-200 dark:border-gray-800">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-8">
@@ -322,8 +302,8 @@ function App() {
             <div className={`container mx-auto px-4 relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="flex flex-col md:flex-row items-center justify-center gap-16">
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-brand-blue to-indigo-400 rounded-full blur-xl opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-              <div className="relative aspect-square w-56 h-56 rounded-full overflow-hidden border-4 border-brand-beige dark:border-gray-800 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+              <div className="absolute -inset-2 bg-gradient-to-r from-brand-blue to-indigo-400 rounded-full border-brand-blue/20 blur-xl opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+              <div className="relative aspect-square w-56 h-56 rounded-full border-brand-blue/20 overflow-hidden border-4 border-brand-beige dark:border-gray-800 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                 <img
                   src={`${assetBase}images/Profile.jpeg`}
                   alt="Yoshni Nandha Kishore"
@@ -339,10 +319,10 @@ function App() {
               <div className="flex justify-center md:justify-start items-center gap-4 mb-8">
                 <a
                   href="mailto:yoshni2003@gmail.com"
-                  className="group relative bg-white dark:bg-gray-800 p-3 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="group relative bg-white dark:bg-gray-800 p-3 rounded-full border-brand-blue/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out"
                 >
                   <div
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-blue via-purple-400 to-pink-400 dark:from-blue-500 dark:via-purple-500 dark:to-pink-500 opacity-0 group-hover:opacity-80 transition-opacity duration-300 blur-md"
+                    className="absolute inset-0 rounded-full border-brand-blue/20 bg-gradient-to-r from-brand-blue via-purple-400 to-pink-400 dark:from-blue-500 dark:via-purple-500 dark:to-pink-500 opacity-0 group-hover:opacity-80 transition-opacity duration-300 blur-md"
                   ></div>
                 <img
                   src={`${assetBase}logos/google.svg`}
@@ -354,9 +334,9 @@ function App() {
                   href="https://www.linkedin.com/in/yoshni-nandha-kishore"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative bg-white dark:bg-gray-800 p-3 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="group relative bg-white dark:bg-gray-800 p-3 rounded-full border-brand-blue/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out"
                 >
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-blue to-blue-300 dark:from-blue-900 dark:to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
+                  <div className="absolute inset-0 rounded-full border-brand-blue/20 bg-gradient-to-r from-brand-blue to-blue-300 dark:from-blue-900 dark:to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
                     alt="LinkedIn"
@@ -367,9 +347,9 @@ function App() {
                   href="https://github.com/aelin-012"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative bg-white dark:bg-gray-800 p-3 rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="group relative bg-white dark:bg-gray-800 p-3 rounded-full border-brand-blue/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out"
                 >
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
+                  <div className="absolute inset-0 rounded-full border-brand-blue/20 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
                     alt="GitHub"
@@ -383,7 +363,7 @@ function App() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   href="#contact"
-                  className="group bg-brand-blue dark:bg-white text-white dark:text-black px-8 py-3 rounded-full hover:bg-brand-blue/90 dark:hover:bg-gray-100 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-brand-blue/20"
+                  className="group bg-brand-blue dark:bg-white text-white dark:text-black px-8 py-3 rounded-full border-brand-blue/20 hover:bg-brand-blue/90 dark:hover:bg-gray-100 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-brand-blue/20"
                 >
                   Hire Me
                   <Mail className="w-4 h-4 group-hover:rotate-12 transition-transform" />
@@ -394,7 +374,7 @@ function App() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setShowResumeOptions(!showResumeOptions)}
-                    className="group border-2 border-brand-blue dark:border-white text-brand-blue dark:text-white px-8 py-3 rounded-full hover:bg-brand-blue/5 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 font-semibold"
+                    className="group border-2 border-brand-blue dark:border-white text-brand-blue dark:text-white px-8 py-3 rounded-full border-brand-blue/20 hover:bg-brand-blue/5 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2 font-semibold"
                   >
                     Resume
                     <FileText className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -408,28 +388,28 @@ function App() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute bottom-full mb-3 left-0 w-56 bg-brand-beige dark:bg-gray-800 border-2 border-brand-blue/20 dark:border-white/20 rounded-2xl shadow-2xl overflow-hidden z-20 backdrop-blur-xl"
+                        className="absolute bottom-full mb-3 left-0 w-56 bg-brand-beige dark:bg-gray-800 border-2 border-brand-blue/20 dark:border-white/20 rounded-3xl shadow-2xl overflow-hidden z-20 backdrop-blur-xl"
                       >
                         <div className="p-2 grid grid-cols-2 gap-2">
                           <a
                             href={`${assetBase}Tech Resume.pdf`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex flex-col items-center justify-center p-3 hover:bg-brand-blue/10 dark:hover:bg-gray-700/50 rounded-xl transition-all border border-transparent hover:border-brand-blue/20 group/item"
+                            className="flex flex-col items-center justify-center p-3 hover:bg-brand-blue/10 dark:hover:bg-gray-700/50 rounded-3xl transition-all border border-transparent hover:border-brand-blue/20 group/item"
                             onClick={() => setShowResumeOptions(false)}
                           >
                             <span className="text-[10px] font-black text-brand-blue dark:text-gray-100 tracking-wider">TECH</span>
-                            <div className="w-4 h-0.5 bg-brand-blue/20 mt-1 rounded-full"></div>
+                            <div className="w-4 h-0.5 bg-brand-blue/20 mt-1 rounded-full border-brand-blue/20"></div>
                           </a>
                           <a
                             href={`${assetBase}Non-Tech Resume.pdf`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex flex-col items-center justify-center p-3 hover:bg-brand-blue/10 dark:hover:bg-gray-700/50 rounded-xl transition-all border border-transparent hover:border-brand-blue/20 group/item"
+                            className="flex flex-col items-center justify-center p-3 hover:bg-brand-blue/10 dark:hover:bg-gray-700/50 rounded-3xl transition-all border border-transparent hover:border-brand-blue/20 group/item"
                             onClick={() => setShowResumeOptions(false)}
                           >
                             <span className="text-[10px] font-black text-brand-blue dark:text-gray-100 tracking-wider">CREATIVE</span>
-                            <div className="w-4 h-0.5 bg-brand-blue/20 mt-1 rounded-full"></div>
+                            <div className="w-4 h-0.5 bg-brand-blue/20 mt-1 rounded-full border-brand-blue/20"></div>
                           </a>
                         </div>
                       </motion.div>
@@ -453,29 +433,40 @@ function App() {
           <h2 className="text-4xl font-bold text-center gradient-text tracking-tight">About Me</h2>
 
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm relative overflow-hidden transition-colors duration-300 border border-brand-blue/5">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-lg font-light">
-                Hi there! 👋 I'm someone who enjoys working at the intersection of data, marketing, and management. I love turning raw data into insights 📊, but also enjoy thinking about how those insights translate into real business decisions and strategies 💡.
-                <br /><br />
-                With a foundation in data analysis, problem-solving, and visualization, I’m always curious about patterns, trends, and what they actually mean for growth and impact 🚀. At the same time, I’m equally interested in planning, organizing, and contributing to teams where ideas turn into action 🎯.
-                <br /><br />
-                Outside of work, I’m usually reading 📖, listening to music 🎵 or podcasts, or binge-watching a good series 📺. I also enjoy experimenting in the kitchen 🍳 — always with a cup of coffee in hand! ☕
-                <br /><br />
-                Let’s connect and build something meaningful together ✨
+            <div className="bg-white/70 dark:bg-gray-800/80 p-10 rounded-[3rem] shadow-cute relative overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 dark:bg-blue-400/10 rounded-full border-brand-blue/20 -translate-y-1/2 translate-x-1/2"></div>
+              <p className="text-gray-700 dark:text-gray-200 leading-loose mb-10 text-lg font-medium relative z-10 flex flex-col gap-6">
+                <span>
+                  Hi there! <Hand className="inline-block w-5 h-5 mx-1 text-amber-500" /> I'm someone who enjoys working at the intersection of data, marketing, and management. I love turning raw data into insights <PieChart className="inline-block w-5 h-5 mx-1 text-brand-blue" />, but also enjoy thinking about how those insights translate into real business decisions and strategies <Lightbulb className="inline-block w-5 h-5 mx-1 text-amber-400" />.
+                </span>
+                <span>
+                  With a foundation in data analysis, problem-solving, and visualization, I’m always curious about patterns, trends, and what they actually mean for growth and impact <Rocket className="inline-block w-5 h-5 mx-1 text-red-500" />. At the same time, I’m equally interested in planning, organizing, and contributing to teams where ideas turn into action <Target className="inline-block w-5 h-5 mx-1 text-emerald-500" />.
+                </span>
+                <span>
+                  Outside of work, I’m usually reading <BookOpen className="inline-block w-5 h-5 mx-1 text-indigo-500" />, listening to music <Music className="inline-block w-5 h-5 mx-1 text-pink-500" /> or podcasts, or binge-watching a good series <Tv className="inline-block w-5 h-5 mx-1 text-gray-500" />. I also enjoy experimenting in the kitchen <ChefHat className="inline-block w-5 h-5 mx-1 text-gray-600" /> — always with a cup of coffee in hand! <Coffee className="inline-block w-5 h-5 mx-1 text-amber-700" />
+                </span>
+                <span>
+                  Let’s connect and build something meaningful together <Sparkles className="inline-block w-5 h-5 mx-1 text-yellow-500" />
+                </span>
               </p>
-              <div className="flex justify-center gap-10">
-                <div className="flex flex-col items-center group">
-                  <span className="text-3xl mb-2 animate-float" style={{ animationDelay: '0.2s' }}>📊</span>
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Data-Driven</span>
+              <div className="flex justify-center gap-12 relative z-10">
+                <div className="flex flex-col items-center group cursor-pointer">
+                  <div className="mb-3 animate-float transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12 text-brand-blue dark:text-blue-400" style={{ animationDelay: '0.2s' }}>
+                    <PieChart size={36} strokeWidth={1.5} />
+                  </div>
+                  <span className="text-sm font-bold text-brand-blue/70 dark:text-blue-300/80 bg-brand-blue/5 dark:bg-blue-900/30 px-3 py-1 rounded-full">Data-Driven</span>
                 </div>
-                <div className="flex flex-col items-center group">
-                  <span className="text-3xl mb-2 animate-float" style={{ animationDelay: '0.4s' }}>📈</span>
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Growth-Oriented</span>
+                <div className="flex flex-col items-center group cursor-pointer">
+                  <div className="mb-3 animate-float transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12 text-brand-blue dark:text-blue-400" style={{ animationDelay: '0.4s' }}>
+                    <LineChart size={36} strokeWidth={1.5} />
+                  </div>
+                  <span className="text-sm font-bold text-brand-blue/70 dark:text-blue-300/80 bg-brand-blue/5 dark:bg-blue-900/30 px-3 py-1 rounded-full">Growth-Oriented</span>
                 </div>
-                <div className="flex flex-col items-center group">
-                  <span className="text-3xl mb-2 animate-float" style={{ animationDelay: '0.6s' }}>📚</span>
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Avid Reader</span>
+                <div className="flex flex-col items-center group cursor-pointer">
+                  <div className="mb-3 animate-float transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12 text-brand-blue dark:text-blue-400" style={{ animationDelay: '0.6s' }}>
+                    <BookOpen size={36} strokeWidth={1.5} />
+                  </div>
+                  <span className="text-sm font-bold text-brand-blue/70 dark:text-blue-300/80 bg-brand-blue/5 dark:bg-blue-900/30 px-3 py-1 rounded-full">Avid Reader</span>
                 </div>
               </div>
             </div>
@@ -492,9 +483,9 @@ function App() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 variants={revealVariants}
-                className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
+                className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-3xl shadow-cute hover:shadow-cute-hover transition-all duration-300 transform hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full border-brand-blue/20 -translate-y-1/2 translate-x-1/2"></div>
                 <div className="relative">
                   {exp.type === "single" ? (
                     <>
@@ -504,7 +495,7 @@ function App() {
                           <div className="flex items-center gap-2 mb-1 flex-wrap">
                             <span className="font-medium text-gray-700 dark:text-gray-300">{exp.company}</span>
                             <span className="text-gray-400 dark:text-gray-500">•</span>
-                            <span className="text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">{exp.duration}</span>
+                            <span className="text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full border-brand-blue/20">{exp.duration}</span>
                           </div>
                           <div className="flex items-center gap-1 text-gray-600 dark:text-gray-400 text-sm">
                             <span className="inline-block w-4 h-4">📍</span>
@@ -524,7 +515,7 @@ function App() {
                     <>
                       <div className="flex items-center justify-between gap-4 mb-5">
                         <h3 className="text-xl font-bold text-brand-blue dark:text-blue-400">{exp.company}</h3>
-                        <span className="shrink-0 text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">{exp.duration}</span>
+                        <span className="shrink-0 text-gray-600 dark:text-gray-400 text-sm bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full border-brand-blue/20">{exp.duration}</span>
                       </div>
 
                       <div className="relative pl-6">
@@ -588,9 +579,9 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
+                className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-3xl shadow-cute hover:shadow-cute-hover transition-all duration-300 transform hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full border-brand-blue/20 -translate-y-1/2 translate-x-1/2"></div>
                 <div className="relative">
                   <h3 className="text-xl font-semibold mb-1 text-brand-blue dark:text-blue-400">{edu.degree}</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{edu.duration}</p>
@@ -607,7 +598,7 @@ function App() {
                         <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.location}</p>
                       )}
                     </div>
-                    <div className="bg-white dark:bg-gray-700 px-3 py-1 rounded-full shadow-sm group-hover:bg-gray-100 dark:group-hover:bg-gray-600 transition-colors duration-300">
+                    <div className="bg-white dark:bg-gray-700 px-3 py-1 rounded-full border-brand-blue/20 shadow-cute group-hover:bg-gray-100 dark:group-hover:bg-gray-600 transition-colors duration-300">
                       <span className="font-medium text-sm text-gray-800 dark:text-gray-200">{edu.score}</span>
                     </div>
                   </div>
@@ -628,7 +619,7 @@ function App() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={revealVariants}
-              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300 border border-brand-blue/5 flex flex-col"
+              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-3xl shadow-cute transition-colors duration-300 border border-brand-blue/5 flex flex-col"
             >
               <div className="flex items-center justify-center mb-8">
                 <h3 className="text-2xl font-bold text-brand-blue dark:text-blue-400">Technical Skills</h3>
@@ -639,7 +630,7 @@ function App() {
                     <h4 className="text-sm font-bold tracking-wider mb-3 text-brand-blue/80 dark:text-blue-400 uppercase">{category.category}</h4>
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill: any) => (
-                        <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 rounded-full border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
+                        <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 rounded-full border-brand-blue/20 border border-gray-200 dark:border-gray-600 shadow-cute hover:shadow-cute-hover hover:border-brand-blue/30 transition-all duration-300">
                           {skill.image ? (
                             <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
                           ) : (
@@ -660,7 +651,7 @@ function App() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={revealVariants}
-              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300 border border-brand-blue/5 flex flex-col"
+              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-3xl shadow-cute transition-colors duration-300 border border-brand-blue/5 flex flex-col"
             >
               <div className="flex items-center justify-center mb-8">
                 <h3 className="text-2xl font-bold text-brand-blue dark:text-blue-400">Business & Creative</h3>
@@ -671,7 +662,7 @@ function App() {
                     <h4 className="text-sm font-bold tracking-wider mb-3 text-brand-blue/80 dark:text-blue-400 uppercase">{category.category}</h4>
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill: any) => (
-                        <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 rounded-full border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
+                        <div key={skill.name} className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 rounded-full border-brand-blue/20 border border-gray-200 dark:border-gray-600 shadow-cute hover:shadow-cute-hover hover:border-brand-blue/30 transition-all duration-300">
                           {skill.image ? (
                             <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
                           ) : (
@@ -692,7 +683,7 @@ function App() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={revealVariants}
-              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-2xl shadow-sm transition-colors duration-300 border border-brand-blue/5 md:col-span-2"
+              className="skill-card bg-white/50 dark:bg-gray-800 p-8 rounded-3xl shadow-cute transition-colors duration-300 border border-brand-blue/5 md:col-span-2"
             >
               <div className="flex items-center justify-center mb-8">
                 <h3 className="text-2xl font-bold text-brand-blue dark:text-blue-400">Professional Skills</h3>
@@ -703,7 +694,7 @@ function App() {
                     <h4 className="text-sm font-bold tracking-wider mb-4 text-brand-blue/80 dark:text-blue-400 uppercase text-center">{category.category}</h4>
                     <div className="flex flex-col gap-3">
                       {category.skills.map((skill: any) => (
-                        <div key={skill.name} className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 rounded-xl border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300">
+                        <div key={skill.name} className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-700 rounded-3xl border border-gray-200 dark:border-gray-600 shadow-cute hover:shadow-cute-hover hover:border-brand-blue/30 transition-all duration-300">
                           {skill.image ? (
                             <img src={skill.image} alt={skill.name} className="w-4 h-4 object-contain" />
                           ) : (
@@ -755,7 +746,7 @@ function App() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 variants={revealVariants}
-                className="group bg-white/50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-brand-blue/5 dark:border-gray-700"
+                className="group bg-white/50 dark:bg-gray-800 p-6 rounded-3xl shadow-cute hover:shadow-cute-hover transition-all duration-300 transform hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out border border-brand-blue/5 dark:border-gray-700"
               >
                 <div className="relative">
                   <h3 className="text-xl font-semibold mb-1 text-brand-blue dark:text-blue-400">{cert.title}</h3>
@@ -766,18 +757,18 @@ function App() {
                       href={cert.link || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 self-start rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white shadow-md shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-blue/90 dark:bg-blue-500 dark:text-white dark:shadow-blue-500/20 dark:hover:bg-blue-400"
+                      className="inline-flex items-center justify-center gap-2 self-start rounded-full border-brand-blue/20 bg-brand-blue px-4 py-2 text-sm font-semibold text-white shadow-cute-hover shadow-brand-blue/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-blue/90 dark:bg-blue-500 dark:text-white dark:shadow-blue-500/20 dark:hover:bg-blue-400"
                     >
                       <ExternalLink className="h-4 w-4" />
                       {cert.link ? "View Certificate" : "Link to be added"}
                     </a>
                     {cert.status === "Completed" ? (
-                      <span className="inline-flex items-center gap-2 self-start rounded-full bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400">
+                      <span className="inline-flex items-center gap-2 self-start rounded-full border-brand-blue/20 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400">
                         <ClipboardCheckIcon className="w-4 h-4" />
                         Completed
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-2 self-start rounded-full bg-amber-500/10 px-4 py-2 text-sm font-semibold text-amber-700 dark:bg-amber-500/15 dark:text-amber-300">
+                      <span className="inline-flex items-center gap-2 self-start rounded-full border-brand-blue/20 bg-amber-500/10 px-4 py-2 text-sm font-semibold text-amber-700 dark:bg-amber-500/15 dark:text-amber-300">
                         <Clock className="w-4 h-4" />
                         In Progress
                       </span>
@@ -798,8 +789,15 @@ function App() {
               const card = (
                 <>
                   <div className="relative border-b border-gray-100 bg-gradient-to-r from-white via-brand-beige/35 to-white px-6 py-5 pr-24 dark:border-gray-700 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+                    {project.inProgress && (
+                      <div className="absolute top-4 right-4 z-10 animate-bounce-soft">
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200/50 bg-amber-50/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-amber-600 shadow-sm backdrop-blur-md dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-300">
+                          ✨ In Progress
+                        </span>
+                      </div>
+                    )}
                     <div className="flex flex-col items-start gap-2">
-                      <span className="inline-flex min-h-11 w-fit max-w-full items-center justify-center rounded-full bg-brand-blue/10 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-center leading-tight text-brand-blue dark:bg-blue-400/10 dark:text-blue-300">
+                      <span className="inline-flex min-h-11 w-fit max-w-full items-center justify-center rounded-full border-brand-blue/20 bg-brand-blue/10 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-center leading-tight text-brand-blue dark:bg-blue-400/10 dark:text-blue-300">
                         {project.categoryLabel}
                       </span>
                     </div>
@@ -818,7 +816,7 @@ function App() {
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="text-xs font-medium bg-brand-blue/5 dark:bg-gray-700 text-brand-blue dark:text-gray-300 px-3 py-1 rounded-full shadow-sm hover:bg-brand-blue/10 transition-all duration-300"
+                          className="text-xs font-medium bg-brand-blue/5 dark:bg-gray-700 text-brand-blue dark:text-gray-300 px-3 py-1 rounded-full border-brand-blue/20 shadow-cute hover:bg-brand-blue/10 transition-all duration-300"
                         >
                           {tech}
                         </span>
@@ -838,7 +836,7 @@ function App() {
                   variants={revealVariants}
                   className="project-card group relative"
                 >
-                  <div className="block h-full overflow-hidden rounded-2xl border border-gray-100 bg-white/50 transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/20 hover:shadow-[0_18px_45px_rgba(3,73,168,0.10)] dark:border-gray-700 dark:bg-gray-800 dark:hover:border-blue-400/25 dark:hover:shadow-[0_18px_45px_rgba(59,130,246,0.18)]">
+                  <div className="block h-full overflow-hidden rounded-3xl border border-gray-100 bg-white/50 transition-all duration-300 hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out hover:border-brand-blue/20 hover:shadow-[0_18px_45px_rgba(3,73,168,0.10)] dark:border-gray-700 dark:bg-gray-800 dark:hover:border-blue-400/25 dark:hover:shadow-[0_18px_45px_rgba(59,130,246,0.18)]">
                     {card}
                   </div>
                 </motion.div>
@@ -857,35 +855,50 @@ function App() {
                 activity: "IETE Club",
                 organization: "Event Management Team / Overall Coordinator",
                 duration: "Nov 2023 - Sep 2024",
-                description: "Coordinated a flagship technical event with the Intel oneAPI AI Hackathon, managing execution for 450+ participants.",
+                description: [
+                  <span>Served as <strong>Overall Coordinator</strong> for a flagship technical event conducted in collaboration with the <strong>Intel oneAPI AI Hackathon</strong>, leading stakeholder communication and event execution for <strong>450+ participants</strong>.</span>,
+                  <span>Contributed to the successful planning and coordination of <strong>three additional technical events</strong>.</span>
+                ],
                 logo: `${assetBase}logos/iete.jpg`
               },
               {
                 activity: "The Elite Club",
                 organization: "Event Management Team",
                 duration: "Oct 2023 - Sep 2024",
-                description: "Planned and delivered business-focused events promoting entrepreneurship, leadership, and innovation.",
+                description: [
+                  <span>Proposed and executed <strong>business-focused events</strong> promoting <strong>entrepreneurship, leadership, and innovation</strong> among students.</span>,
+                  <span>Coordinated event planning, team collaboration, and operational execution to deliver engaging campus experiences.</span>
+                ],
                 logo: `${assetBase}logos/elite.jpg`
               },
               {
                 activity: "ECE Department - Gokulashtami Event",
                 organization: "Finance Coordinator",
                 duration: "Aug 2024",
-                description: "Managed budgeting and vendor coordination for an event budget exceeding ₹56,000.",
+                description: [
+                  <span>Managed budgeting, resource allocation, and vendor coordination for an event with a budget exceeding <strong>₹56,000</strong>.</span>,
+                  <span>Oversaw expense tracking and procurement activities to support successful event execution.</span>
+                ],
                 logo: `${assetBase}logos/amrita.svg`
               },
               {
                 activity: "Google Developers Student Club",
                 organization: "Student Core Team Member",
                 duration: "Aug 2023 - May 2024",
-                description: "Served as SPOC and helped drive awareness initiatives that attracted 250+ participants to major club events.",
+                description: [
+                  <span>Served as the <strong>Student Point of Contact (SPOC)</strong> and led awareness initiatives that attracted <strong>250+ participants</strong> to the club's first major event of the academic year.</span>,
+                  <span>Coordinated multiple technical events to strengthen student engagement and community participation.</span>
+                ],
                 logo: `${assetBase}logos/gdsc.svg`
               },
               {
-                activity: "Class Representative",
-                organization: "Amrita Vishwa Vidyapeetham",
+                activity: "Amrita Vishwa Vidyapeetham",
+                organization: "Class Representative",
                 duration: "Oct 2021 - Sep 2022",
-                description: "Streamlined communication on schedules, assignments, and faculty coordination for a class of 65 students.",
+                description: [
+                  <span>Coordinated academic communication and faculty interactions for a class of <strong>65 students</strong> in a fully online environment.</span>,
+                  <span>Created a centralized academic resource hub that generated <strong>1,500+ visits</strong> and was later adopted across the department for knowledge sharing and organization.</span>
+                ],
                 logo: `${assetBase}logos/amrita.svg`
               }
             ].map((item, index) => (
@@ -896,23 +909,27 @@ function App() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 variants={revealVariants}
-                className="group bg-white/50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-brand-blue/5 dark:border-gray-700 flex items-start gap-4"
+                className="group bg-white/50 dark:bg-gray-800 p-6 rounded-3xl shadow-cute hover:shadow-cute-hover transition-all duration-300 transform hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out border border-brand-blue/5 dark:border-gray-700 flex items-start gap-4"
               >
                 <div className="w-12 h-12 flex-shrink-0">
                   {item.logo ? (
                     <img
                       src={item.logo}
                       alt={`${item.organization} logo`}
-                      className="w-full h-full object-contain rounded-full"
+                      className="w-full h-full object-contain rounded-full border-brand-blue/20"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-400 text-xs">Logo</div>
+                    <div className="w-full h-full bg-gray-200 dark:bg-gray-700 rounded-full border-brand-blue/20 flex items-center justify-center text-gray-500 dark:text-gray-400 text-xs">Logo</div>
                   )}
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold mb-1 text-brand-blue dark:text-blue-400">{item.activity}</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{item.organization} | {item.duration}</p>
-                  <p className="text-gray-700 dark:text-gray-300 text-base">{item.description}</p>
+                  <ul className="text-gray-700 dark:text-gray-300 text-sm list-disc pl-5 space-y-1.5">
+                    {item.description.map((point, pointIndex) => (
+                      <li key={pointIndex}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
@@ -935,9 +952,9 @@ function App() {
           <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-6">
             <a
               href="mailto:yoshni2003@gmail.com"
-              className="group flex items-center gap-4 p-5 bg-white/50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-brand-blue/5 dark:border-gray-700 min-w-[240px]"
+              className="group flex items-center gap-4 p-5 bg-white/50 dark:bg-gray-800 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out border border-brand-blue/5 dark:border-gray-700 min-w-[240px]"
             >
-              <div className="bg-brand-blue/10 dark:bg-gray-700 p-3 rounded-xl group-hover:bg-brand-blue/20 transition-colors">
+              <div className="bg-brand-blue/10 dark:bg-gray-700 p-3 rounded-3xl group-hover:bg-brand-blue/20 transition-colors">
                 <Mail className="w-6 h-6 text-brand-blue dark:text-brand-blue transition-colors" />
               </div>
               <div className="text-left">
@@ -949,9 +966,9 @@ function App() {
               href="https://www.linkedin.com/in/yoshni-nandha-kishore"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 p-5 bg-white/50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-brand-blue/5 dark:border-gray-700 min-w-[240px]"
+              className="group flex items-center gap-4 p-5 bg-white/50 dark:bg-gray-800 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:rotate-2 transition-all duration-300 ease-in-out border border-brand-blue/5 dark:border-gray-700 min-w-[240px]"
             >
-              <div className="bg-brand-blue/10 dark:bg-gray-700 p-3 rounded-xl group-hover:bg-brand-blue/20 transition-colors">
+              <div className="bg-brand-blue/10 dark:bg-gray-700 p-3 rounded-3xl group-hover:bg-brand-blue/20 transition-colors">
                 <Linkedin className="w-6 h-6 text-brand-blue dark:text-brand-blue transition-colors" />
               </div>
               <div className="text-left">

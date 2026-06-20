@@ -20,7 +20,7 @@
   }
 
   .glass-card {
-    @apply bg-brand-beige/80 dark:bg-gray-800/70 backdrop-blur-md border border-brand-blue/10 dark:border-gray-700/30 shadow-xl;
+    @apply bg-brand-beige/80 dark:bg-gray-800/70 backdrop-blur-md border border-brand-blue/10 dark:border-gray-700/30 shadow-cute rounded-3xl;
   }
 }
 
@@ -67,19 +67,21 @@
 }
 
 .skill-card {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .skill-card:hover {
-  transform: translateY(-5px) scale(1.02);
+  transform: translateY(-6px) rotate(1deg) scale(1.02);
+  box-shadow: 0 15px 35px rgba(3, 73, 168, 0.12);
 }
 
 .project-card {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) rotate(-1deg) scale(1.02);
+  box-shadow: 0 15px 35px rgba(3, 73, 168, 0.12);
 }
 
 .gradient-bg {
