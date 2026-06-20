@@ -29,13 +29,23 @@ function App() {
           setActiveSection(entry.target.id);
         }
       });
-    }, { threshold: 0.5 });
+    }, { rootMargin: '-20% 0px -20% 0px' });
 
     document.querySelectorAll('section[id]').forEach((section) => {
       observer.observe(section);
     });
 
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        setActiveSection('contact');
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const revealVariants = {
@@ -471,69 +481,6 @@ function App() {
             </div>
           </div>
 
-          <h2 className="text-4xl font-bold text-center gradient-text tracking-tight">Education</h2>
-
-          <div id="education" className="max-w-4xl mx-auto space-y-6">
-            {[
-              {
-                degree: "Bachelor of Technology - B.Tech",
-                duration: "Aug 2021 - May 2025",
-                field: "Electronics and Communications Engineering",
-                institution: "Amrita Vishwa Vidyapeetham",
-                location: "Coimbatore",
-                score: "Grade: First Class"
-              },
-              {
-                degree: "Grade 12",
-                duration: "Jun 2019 - May 2021",
-                field: "Mathematics and Computer Science",
-                institution: "Victory Vidhyalaya Matric Hr Sec School",
-                location: "Coimbatore",
-                score: "Percentage: 91.8%"
-              },
-              {
-                degree: "Grade 10",
-                duration: "Jun 2009 - Mar 2019",
-                institution: "Einstein Public School",
-                location: "Coimbatore",
-                activities: "Activities and societies: I.I.M.U.N, Olympiad, Cambridge English Test, Helen O Grady Drama Academy, VocaBoom, Smile Foundation",
-                score: "Percentage: 91.2%"
-              }
-            ].map((edu, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                <div className="relative">
-                  <h3 className="text-xl font-semibold mb-1 text-brand-blue dark:text-blue-400">{edu.degree}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{edu.duration}</p>
-                  {edu.field && (
-                    <p className="text-base text-gray-700 dark:text-gray-300 mb-2 italic">{edu.field}</p>
-                  )}
-                  {edu.activities && (
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{edu.activities}</p>
-                  )}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div>
-                      <p className="font-medium text-gray-800 dark:text-gray-200">{edu.institution}</p>
-                      {edu.location && (
-                        <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.location}</p>
-                      )}
-                    </div>
-                    <div className="bg-white dark:bg-gray-700 px-3 py-1 rounded-full shadow-sm group-hover:bg-gray-100 dark:group-hover:bg-gray-600 transition-colors duration-300">
-                      <span className="font-medium text-sm text-gray-800 dark:text-gray-200">{edu.score}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
           <h2 className="text-4xl font-bold text-center gradient-text tracking-tight">Experience</h2>
 
           <div id="experience" className="max-w-4xl mx-auto space-y-6">
@@ -605,7 +552,70 @@ function App() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+
+          <h2 className="text-4xl font-bold text-center gradient-text tracking-tight">Education</h2>
+
+          <div id="education" className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                degree: "Bachelor of Technology - B.Tech",
+                duration: "Aug 2021 - May 2025",
+                field: "Electronics and Communications Engineering",
+                institution: "Amrita Vishwa Vidyapeetham",
+                location: "Coimbatore",
+                score: "Grade: First Class"
+              },
+              {
+                degree: "Grade 12",
+                duration: "Jun 2019 - May 2021",
+                field: "Mathematics and Computer Science",
+                institution: "Victory Vidhyalaya Matric Hr Sec School",
+                location: "Coimbatore",
+                score: "Percentage: 91.8%"
+              },
+              {
+                degree: "Grade 10",
+                duration: "Jun 2009 - Mar 2019",
+                institution: "Einstein Public School",
+                location: "Coimbatore",
+                activities: "Activities and societies: I.I.M.U.N, Olympiad, Cambridge English Test, Helen O Grady Drama Academy, VocaBoom, Smile Foundation",
+                score: "Percentage: 91.2%"
+              }
+            ].map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-black dark:bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div className="relative">
+                  <h3 className="text-xl font-semibold mb-1 text-brand-blue dark:text-blue-400">{edu.degree}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">{edu.duration}</p>
+                  {edu.field && (
+                    <p className="text-base text-gray-700 dark:text-gray-300 mb-2 italic">{edu.field}</p>
+                  )}
+                  {edu.activities && (
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{edu.activities}</p>
+                  )}
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                      <p className="font-medium text-gray-800 dark:text-gray-200">{edu.institution}</p>
+                      {edu.location && (
+                        <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.location}</p>
+                      )}
+                    </div>
+                    <div className="bg-white dark:bg-gray-700 px-3 py-1 rounded-full shadow-sm group-hover:bg-gray-100 dark:group-hover:bg-gray-600 transition-colors duration-300">
+                      <span className="font-medium text-sm text-gray-800 dark:text-gray-200">{edu.score}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+</motion.div>
       </section>
 
       <section id="skills" className="py-20 bg-brand-beige dark:bg-gray-900 transition-colors duration-300">
