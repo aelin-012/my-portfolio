@@ -437,16 +437,16 @@ function App() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 dark:bg-blue-400/10 rounded-full border-brand-blue/20 -translate-y-1/2 translate-x-1/2"></div>
               <p className="text-gray-700 dark:text-gray-200 leading-loose mb-10 text-lg font-medium relative z-10 flex flex-col gap-6">
                 <span>
-                  Hi there! <Hand className="inline-block w-5 h-5 mx-1 text-amber-500" /> I'm someone who enjoys working at the intersection of data, marketing, and management. I love turning raw data into insights <PieChart className="inline-block w-5 h-5 mx-1 text-brand-blue" />, but also enjoy thinking about how those insights translate into real business decisions and strategies <Lightbulb className="inline-block w-5 h-5 mx-1 text-amber-400" />.
+                  Hi there! <Hand className="inline-block w-5 h-5 mx-1 text-amber-500 animate-wave origin-bottom-right" /> I'm someone who enjoys working at the intersection of data, marketing, and management. I love turning raw data into insights <PieChart className="inline-block w-5 h-5 mx-1 text-brand-blue animate-spin-slow" />, but also enjoy thinking about how those insights translate into real business decisions and strategies <Lightbulb className="inline-block w-5 h-5 mx-1 text-amber-400 animate-glow" />.
                 </span>
                 <span>
-                  With a foundation in data analysis, problem-solving, and visualization, I’m always curious about patterns, trends, and what they actually mean for growth and impact <Rocket className="inline-block w-5 h-5 mx-1 text-red-500" />. At the same time, I’m equally interested in planning, organizing, and contributing to teams where ideas turn into action <Target className="inline-block w-5 h-5 mx-1 text-emerald-500" />.
+                  With a foundation in data analysis, problem-solving, and visualization, I’m always curious about patterns, trends, and what they actually mean for growth and impact <Rocket className="inline-block w-5 h-5 mx-1 text-red-500 animate-launch" />. At the same time, I’m equally interested in planning, organizing, and contributing to teams where ideas turn into action <Target className="inline-block w-5 h-5 mx-1 text-emerald-500 animate-pulse" />.
                 </span>
                 <span>
-                  Outside of work, I’m usually reading <BookOpen className="inline-block w-5 h-5 mx-1 text-indigo-500" />, listening to music <Music className="inline-block w-5 h-5 mx-1 text-pink-500" /> or podcasts, or binge-watching a good series <Tv className="inline-block w-5 h-5 mx-1 text-gray-500" />. I also enjoy experimenting in the kitchen <ChefHat className="inline-block w-5 h-5 mx-1 text-gray-600" /> — always with a cup of coffee in hand! <Coffee className="inline-block w-5 h-5 mx-1 text-amber-700" />
+                  Outside of work, I’m usually reading <BookOpen className="inline-block w-5 h-5 mx-1 text-indigo-500 animate-wiggle" />, listening to music <Music className="inline-block w-5 h-5 mx-1 text-pink-500 animate-bounce-soft" /> or podcasts, or binge-watching a good series <Tv className="inline-block w-5 h-5 mx-1 text-gray-500 animate-pulse" />. I also enjoy experimenting in the kitchen <ChefHat className="inline-block w-5 h-5 mx-1 text-gray-600 animate-wiggle" /> — always with a cup of coffee in hand! <Coffee className="inline-block w-5 h-5 mx-1 text-amber-700 animate-hot" />
                 </span>
                 <span>
-                  Let’s connect and build something meaningful together <Sparkles className="inline-block w-5 h-5 mx-1 text-yellow-500" />
+                  Let’s connect and build something meaningful together <Sparkles className="inline-block w-5 h-5 mx-1 text-yellow-500 animate-sparkle" />
                 </span>
               </p>
               <div className="flex justify-center gap-12 relative z-10">
